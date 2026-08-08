@@ -100,7 +100,7 @@ export function Header() {
               key={item.href}
               href={item.href}
               className={cn(
-                "relative px-2.5 py-2 font-display text-[0.72rem] font-medium uppercase tracking-[0.13em] transition-colors duration-300",
+                "relative whitespace-nowrap px-2.5 py-2 font-display text-[0.72rem] font-medium uppercase tracking-[0.13em] transition-colors duration-300",
                 active === item.href ? "text-gold" : "text-offwhite/80 hover:text-gold",
               )}
             >
@@ -119,7 +119,7 @@ export function Header() {
         <div className="flex items-center gap-2">
           <a
             href="#contact"
-            className="hidden rounded-sm bg-gold px-5 py-2.5 font-display text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-navy-deep transition-all duration-300 hover:bg-gold-metal hover:shadow-[0_16px_38px_-20px_var(--gold)] lg:inline-flex"
+            className="hidden whitespace-nowrap rounded-sm bg-gold px-5 py-2.5 font-display text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-navy-deep transition-all duration-300 hover:bg-gold-metal hover:shadow-[0_16px_38px_-20px_var(--gold)] lg:inline-flex"
           >
             Join / Enquire
           </a>

@@ -220,7 +220,7 @@ export function ScoringSection() {
       />
       <StaggerGroup className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
         {SCORING.map((s, i) => {
-          const Icon = icons[i];
+          const Icon = icons[i]!;
           return (
             <StaggerItem key={s.title} className="h-full">
               <article className="card-premium h-full rounded-sm p-7">
@@ -347,7 +347,7 @@ export function BenefitsGrid() {
       <SectionHeading eyebrow="Value of the art" title="Why Practice Pencak Silat?" />
       <StaggerGroup className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {BENEFITS.map((b, i) => {
-          const Icon = BENEFIT_ICONS[i % BENEFIT_ICONS.length];
+          const Icon = BENEFIT_ICONS[i % BENEFIT_ICONS.length]!;
           return (
             <StaggerItem key={b} className="h-full">
               <div className="card-premium flex h-full flex-col gap-4 rounded-sm p-6">

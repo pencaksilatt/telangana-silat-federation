@@ -137,7 +137,7 @@ export function WhatIsSection() {
 
         <StaggerGroup className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {PILLARS.map((p, i) => {
-            const Icon = PILLAR_ICONS[i];
+            const Icon = PILLAR_ICONS[i]!;
             return (
               <StaggerItem key={p.no}>
                 <article className="card-dark group h-full rounded-sm p-7">

@@ -261,11 +261,7 @@ export function ContactSection() {
 }
 
 export function Footer() {
-  const quick = NAV.filter((n) =>
-    ["Home", "About", "Disciplines", "Sports & Events", "History", "Gallery", "Rules", "Contact"].includes(
-      n.label,
-    ),
-  );
+  const quick = NAV.filter((n) => n.label !== "Home");
 
   return (
     <footer className="surface-navy relative">
@@ -273,7 +269,7 @@ export function Footer() {
       <div className="mx-auto w-full max-w-7xl px-5 py-14 sm:px-8">
         <div className="grid gap-10 lg:grid-cols-[1.6fr_1fr_1fr_1.2fr]">
           <div>
-            <div className="flex items-center gap-3">
+            <Link to="/" className="flex items-center gap-3">
               <img
                 src={logo.url}
                 alt="Pencak Silat Sports Association of Telangana emblem"
@@ -287,7 +283,7 @@ export function Footer() {
                 <br />
                 <span className="text-gold">Association of Telangana</span>
               </p>
-            </div>
+            </Link>
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-offwhite/60">
               Promoting the art, sport and heritage of Pencak Silat across Telangana through
               training, competition and disciplined development.
@@ -301,13 +297,13 @@ export function Footer() {
             </p>
             <ul className="mt-4 space-y-2">
               {quick.map((n) => (
-                <li key={n.href}>
-                  <a
-                    href={n.href}
+                <li key={n.to}>
+                  <Link
+                    to={n.to}
                     className="text-sm text-offwhite/65 transition-colors hover:text-gold"
                   >
                     {n.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -318,18 +314,19 @@ export function Footer() {
               Pencak Silat
             </p>
             <ul className="mt-4 space-y-2">
-              {["Tanding", "Tunggal", "Ganda", "Regu", "Solo Creative"].map((d) => (
-                <li key={d}>
-                  <a
-                    href="#disciplines"
+              {DISCIPLINE_LINKS.map((d) => (
+                <li key={d.to}>
+                  <Link
+                    to={d.to}
                     className="text-sm text-offwhite/65 transition-colors hover:text-gold"
                   >
-                    {d}
-                  </a>
+                    {d.label}
+                  </Link>
                 </li>
               ))}
             </ul>
           </nav>
+
 
           <div>
             <p className="font-display text-[0.66rem] uppercase tracking-[0.24em] text-gold">

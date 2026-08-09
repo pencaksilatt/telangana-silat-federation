@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as PencakSilatRouteImport } from './routes/pencak-silat'
 import { Route as DisciplinesIndexRouteImport } from './routes/disciplines.index'
+import { Route as DisciplinesTandingRouteImport } from './routes/disciplines.tanding'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -34,17 +35,24 @@ const DisciplinesIndexRoute = DisciplinesIndexRouteImport.update({
   path: '/disciplines/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DisciplinesTandingRoute = DisciplinesTandingRouteImport.update({
+  id: '/disciplines/tanding',
+  path: '/disciplines/tanding',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/pencak-silat': typeof PencakSilatRoute
+  '/disciplines/tanding': typeof DisciplinesTandingRoute
   '/disciplines/': typeof DisciplinesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/pencak-silat': typeof PencakSilatRoute
+  '/disciplines/tanding': typeof DisciplinesTandingRoute
   '/disciplines': typeof DisciplinesIndexRoute
 }
 export interface FileRoutesById {
@@ -52,20 +60,29 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/pencak-silat': typeof PencakSilatRoute
+  '/disciplines/tanding': typeof DisciplinesTandingRoute
   '/disciplines/': typeof DisciplinesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/pencak-silat' | '/disciplines/'
+  fullPaths:
+    '/' | '/about' | '/pencak-silat' | '/disciplines/tanding' | '/disciplines/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/pencak-silat' | '/disciplines'
-  id: '__root__' | '/' | '/about' | '/pencak-silat' | '/disciplines/'
+  to: '/' | '/about' | '/pencak-silat' | '/disciplines/tanding' | '/disciplines'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/pencak-silat'
+    | '/disciplines/tanding'
+    | '/disciplines/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   PencakSilatRoute: typeof PencakSilatRoute
+  DisciplinesTandingRoute: typeof DisciplinesTandingRoute
   DisciplinesIndexRoute: typeof DisciplinesIndexRoute
 }
 
@@ -99,6 +116,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DisciplinesIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/disciplines/tanding': {
+      id: '/disciplines/tanding'
+      path: '/disciplines/tanding'
+      fullPath: '/disciplines/tanding'
+      preLoaderRoute: typeof DisciplinesTandingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -106,6 +130,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   PencakSilatRoute: PencakSilatRoute,
+  DisciplinesTandingRoute: DisciplinesTandingRoute,
   DisciplinesIndexRoute: DisciplinesIndexRoute,
 }
 export const routeTree = rootRouteImport

@@ -16,6 +16,7 @@ import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as HistoryRouteImport } from './routes/history'
 import { Route as LeadershipRouteImport } from './routes/leadership'
 import { Route as PencakSilatRouteImport } from './routes/pencak-silat'
+import { Route as RulesRouteImport } from './routes/rules'
 import { Route as DisciplinesIndexRouteImport } from './routes/disciplines.index'
 import { Route as DisciplinesGandaRouteImport } from './routes/disciplines.ganda'
 import { Route as DisciplinesReguRouteImport } from './routes/disciplines.regu'
@@ -58,6 +59,11 @@ const PencakSilatRoute = PencakSilatRouteImport.update({
   path: '/pencak-silat',
   getParentRoute: () => rootRouteImport,
 } as any)
+const RulesRoute = RulesRouteImport.update({
+  id: '/rules',
+  path: '/rules',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const DisciplinesIndexRoute = DisciplinesIndexRouteImport.update({
   id: '/disciplines/',
   path: '/disciplines/',
@@ -97,6 +103,7 @@ export interface FileRoutesByFullPath {
   '/history': typeof HistoryRoute
   '/leadership': typeof LeadershipRoute
   '/pencak-silat': typeof PencakSilatRoute
+  '/rules': typeof RulesRoute
   '/disciplines/ganda': typeof DisciplinesGandaRoute
   '/disciplines/regu': typeof DisciplinesReguRoute
   '/disciplines/solo-creative': typeof DisciplinesSoloCreativeRoute
@@ -112,6 +119,7 @@ export interface FileRoutesByTo {
   '/history': typeof HistoryRoute
   '/leadership': typeof LeadershipRoute
   '/pencak-silat': typeof PencakSilatRoute
+  '/rules': typeof RulesRoute
   '/disciplines/ganda': typeof DisciplinesGandaRoute
   '/disciplines/regu': typeof DisciplinesReguRoute
   '/disciplines/solo-creative': typeof DisciplinesSoloCreativeRoute
@@ -128,6 +136,7 @@ export interface FileRoutesById {
   '/history': typeof HistoryRoute
   '/leadership': typeof LeadershipRoute
   '/pencak-silat': typeof PencakSilatRoute
+  '/rules': typeof RulesRoute
   '/disciplines/ganda': typeof DisciplinesGandaRoute
   '/disciplines/regu': typeof DisciplinesReguRoute
   '/disciplines/solo-creative': typeof DisciplinesSoloCreativeRoute
@@ -145,6 +154,7 @@ export interface FileRouteTypes {
     | '/history'
     | '/leadership'
     | '/pencak-silat'
+    | '/rules'
     | '/disciplines/ganda'
     | '/disciplines/regu'
     | '/disciplines/solo-creative'
@@ -160,6 +170,7 @@ export interface FileRouteTypes {
     | '/history'
     | '/leadership'
     | '/pencak-silat'
+    | '/rules'
     | '/disciplines/ganda'
     | '/disciplines/regu'
     | '/disciplines/solo-creative'
@@ -175,6 +186,7 @@ export interface FileRouteTypes {
     | '/history'
     | '/leadership'
     | '/pencak-silat'
+    | '/rules'
     | '/disciplines/ganda'
     | '/disciplines/regu'
     | '/disciplines/solo-creative'
@@ -191,6 +203,7 @@ export interface RootRouteChildren {
   HistoryRoute: typeof HistoryRoute
   LeadershipRoute: typeof LeadershipRoute
   PencakSilatRoute: typeof PencakSilatRoute
+  RulesRoute: typeof RulesRoute
   DisciplinesGandaRoute: typeof DisciplinesGandaRoute
   DisciplinesReguRoute: typeof DisciplinesReguRoute
   DisciplinesSoloCreativeRoute: typeof DisciplinesSoloCreativeRoute
@@ -250,6 +263,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PencakSilatRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/rules': {
+      id: '/rules'
+      path: '/rules'
+      fullPath: '/rules'
+      preLoaderRoute: typeof RulesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/disciplines/': {
       id: '/disciplines/'
       path: '/disciplines'
@@ -303,6 +323,7 @@ const rootRouteChildren: RootRouteChildren = {
   HistoryRoute: HistoryRoute,
   LeadershipRoute: LeadershipRoute,
   PencakSilatRoute: PencakSilatRoute,
+  RulesRoute: RulesRoute,
   DisciplinesGandaRoute: DisciplinesGandaRoute,
   DisciplinesReguRoute: DisciplinesReguRoute,
   DisciplinesSoloCreativeRoute: DisciplinesSoloCreativeRoute,

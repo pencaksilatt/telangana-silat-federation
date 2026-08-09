@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as PencakSilatRouteImport } from './routes/pencak-silat'
+import { Route as DisciplinesIndexRouteImport } from './routes/disciplines.index'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -28,35 +29,44 @@ const PencakSilatRoute = PencakSilatRouteImport.update({
   path: '/pencak-silat',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DisciplinesIndexRoute = DisciplinesIndexRouteImport.update({
+  id: '/disciplines/',
+  path: '/disciplines/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/pencak-silat': typeof PencakSilatRoute
+  '/disciplines/': typeof DisciplinesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/pencak-silat': typeof PencakSilatRoute
+  '/disciplines': typeof DisciplinesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/pencak-silat': typeof PencakSilatRoute
+  '/disciplines/': typeof DisciplinesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/pencak-silat'
+  fullPaths: '/' | '/about' | '/pencak-silat' | '/disciplines/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/pencak-silat'
-  id: '__root__' | '/' | '/about' | '/pencak-silat'
+  to: '/' | '/about' | '/pencak-silat' | '/disciplines'
+  id: '__root__' | '/' | '/about' | '/pencak-silat' | '/disciplines/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   PencakSilatRoute: typeof PencakSilatRoute
+  DisciplinesIndexRoute: typeof DisciplinesIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -82,6 +92,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PencakSilatRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/disciplines/': {
+      id: '/disciplines/'
+      path: '/disciplines'
+      fullPath: '/disciplines/'
+      preLoaderRoute: typeof DisciplinesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -89,6 +106,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   PencakSilatRoute: PencakSilatRoute,
+  DisciplinesIndexRoute: DisciplinesIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

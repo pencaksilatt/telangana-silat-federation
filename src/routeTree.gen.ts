@@ -14,6 +14,7 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as PencakSilatRouteImport } from './routes/pencak-silat'
 import { Route as DisciplinesIndexRouteImport } from './routes/disciplines.index'
 import { Route as DisciplinesTandingRouteImport } from './routes/disciplines.tanding'
+import { Route as DisciplinesTunggalRouteImport } from './routes/disciplines.tunggal'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -40,12 +41,18 @@ const DisciplinesTandingRoute = DisciplinesTandingRouteImport.update({
   path: '/disciplines/tanding',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DisciplinesTunggalRoute = DisciplinesTunggalRouteImport.update({
+  id: '/disciplines/tunggal',
+  path: '/disciplines/tunggal',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/pencak-silat': typeof PencakSilatRoute
   '/disciplines/tanding': typeof DisciplinesTandingRoute
+  '/disciplines/tunggal': typeof DisciplinesTunggalRoute
   '/disciplines/': typeof DisciplinesIndexRoute
 }
 export interface FileRoutesByTo {
@@ -53,6 +60,7 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/pencak-silat': typeof PencakSilatRoute
   '/disciplines/tanding': typeof DisciplinesTandingRoute
+  '/disciplines/tunggal': typeof DisciplinesTunggalRoute
   '/disciplines': typeof DisciplinesIndexRoute
 }
 export interface FileRoutesById {
@@ -61,20 +69,33 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/pencak-silat': typeof PencakSilatRoute
   '/disciplines/tanding': typeof DisciplinesTandingRoute
+  '/disciplines/tunggal': typeof DisciplinesTunggalRoute
   '/disciplines/': typeof DisciplinesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    '/' | '/about' | '/pencak-silat' | '/disciplines/tanding' | '/disciplines/'
+    | '/'
+    | '/about'
+    | '/pencak-silat'
+    | '/disciplines/tanding'
+    | '/disciplines/tunggal'
+    | '/disciplines/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/pencak-silat' | '/disciplines/tanding' | '/disciplines'
+  to:
+    | '/'
+    | '/about'
+    | '/pencak-silat'
+    | '/disciplines/tanding'
+    | '/disciplines/tunggal'
+    | '/disciplines'
   id:
     | '__root__'
     | '/'
     | '/about'
     | '/pencak-silat'
     | '/disciplines/tanding'
+    | '/disciplines/tunggal'
     | '/disciplines/'
   fileRoutesById: FileRoutesById
 }
@@ -83,6 +104,7 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   PencakSilatRoute: typeof PencakSilatRoute
   DisciplinesTandingRoute: typeof DisciplinesTandingRoute
+  DisciplinesTunggalRoute: typeof DisciplinesTunggalRoute
   DisciplinesIndexRoute: typeof DisciplinesIndexRoute
 }
 
@@ -123,6 +145,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DisciplinesTandingRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/disciplines/tunggal': {
+      id: '/disciplines/tunggal'
+      path: '/disciplines/tunggal'
+      fullPath: '/disciplines/tunggal'
+      preLoaderRoute: typeof DisciplinesTunggalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -131,6 +160,7 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   PencakSilatRoute: PencakSilatRoute,
   DisciplinesTandingRoute: DisciplinesTandingRoute,
+  DisciplinesTunggalRoute: DisciplinesTunggalRoute,
   DisciplinesIndexRoute: DisciplinesIndexRoute,
 }
 export const routeTree = rootRouteImport

@@ -50,18 +50,104 @@ export const SOCIALS = [
   },
 ] as const;
 
-export const NAV = [
-  { label: "Home", href: "#home" },
-  { label: "About", href: "#about" },
-  { label: "Pencak Silat", href: "#what-is" },
-  { label: "Disciplines", href: "#disciplines" },
-  { label: "Sports & Events", href: "#events" },
-  { label: "History", href: "#history" },
-  { label: "Leadership", href: "#leadership" },
-  { label: "Gallery", href: "#gallery" },
-  { label: "Rules", href: "#rules" },
-  { label: "Contact", href: "#contact" },
+export const DISCIPLINE_LINKS = [
+  { label: "Tanding", to: "/disciplines/tanding" },
+  { label: "Tunggal", to: "/disciplines/tunggal" },
+  { label: "Ganda", to: "/disciplines/ganda" },
+  { label: "Regu", to: "/disciplines/regu" },
+  { label: "Solo Creative", to: "/disciplines/solo-creative" },
+] as const;
+
+export const NAV: {
+  label: string;
+  to: string;
+  children?: readonly { label: string; to: string }[];
+}[] = [
+  { label: "Home", to: "/" },
+  { label: "About", to: "/about" },
+  { label: "Pencak Silat", to: "/pencak-silat" },
+  { label: "Disciplines", to: "/disciplines", children: DISCIPLINE_LINKS },
+  { label: "Sports & Events", to: "/events" },
+  { label: "History", to: "/history" },
+  { label: "Leadership", to: "/leadership" },
+  { label: "Gallery", to: "/gallery" },
+  { label: "Rules", to: "/rules" },
+  { label: "Contact", to: "/contact" },
 ];
+
+export const EVENTS = [
+  {
+    id: "state-championship",
+    title: "Telangana State Pencak Silat Championship",
+    category: "Championships",
+    date: "Dates to be announced",
+    location: "Medchal Malkajgiri, Telangana",
+    status: "Upcoming",
+    description:
+      "The flagship state-level championship covering Tanding and artistic categories for all eligible age groups.",
+  },
+  {
+    id: "district-selection",
+    title: "District Selection Trials",
+    category: "Tanding",
+    date: "Dates to be announced",
+    location: "District centres across Telangana",
+    status: "Registration Open",
+    description:
+      "Selection trials to identify Pesilat for the state squad across the notified weight categories.",
+  },
+  {
+    id: "artistic-open",
+    title: "State Artistic Open — Tunggal, Ganda & Regu",
+    category: "Artistic",
+    date: "Dates to be announced",
+    location: "Telangana",
+    status: "Upcoming",
+    description:
+      "An artistic-category open for single, double and team performances judged on precision, power and expression.",
+  },
+  {
+    id: "coaching-camp",
+    title: "State Coaching & Technical Camp",
+    category: "Training",
+    date: "Dates to be announced",
+    location: "Association training centre, Medchal",
+    status: "Upcoming",
+    description:
+      "Technical camp conducted by association coaches covering fundamentals, conditioning and competition preparation.",
+  },
+  {
+    id: "referee-clinic",
+    title: "Referee & Judges Clinic",
+    category: "Training",
+    date: "Concluded",
+    location: "Telangana",
+    status: "Completed",
+    description:
+      "Orientation and refresher clinic for referees and judges on the applicable rules of the governing federation.",
+  },
+  {
+    id: "inter-district",
+    title: "Inter-District Pencak Silat Meet",
+    category: "Championships",
+    date: "Concluded",
+    location: "Telangana",
+    status: "Completed",
+    description:
+      "Inter-district competition promoting participation and talent identification across the state.",
+  },
+] as const;
+
+export const EVENT_FILTERS = [
+  "All",
+  "Upcoming",
+  "Completed",
+  "Tanding",
+  "Artistic",
+  "Training",
+  "Championships",
+] as const;
+
 
 export const AFFILIATIONS = [
   "Indian Pencak Silat Federation",

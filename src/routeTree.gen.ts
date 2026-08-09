@@ -14,6 +14,7 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as PencakSilatRouteImport } from './routes/pencak-silat'
 import { Route as DisciplinesIndexRouteImport } from './routes/disciplines.index'
 import { Route as DisciplinesGandaRouteImport } from './routes/disciplines.ganda'
+import { Route as DisciplinesReguRouteImport } from './routes/disciplines.regu'
 import { Route as DisciplinesTandingRouteImport } from './routes/disciplines.tanding'
 import { Route as DisciplinesTunggalRouteImport } from './routes/disciplines.tunggal'
 
@@ -42,6 +43,11 @@ const DisciplinesGandaRoute = DisciplinesGandaRouteImport.update({
   path: '/disciplines/ganda',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DisciplinesReguRoute = DisciplinesReguRouteImport.update({
+  id: '/disciplines/regu',
+  path: '/disciplines/regu',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const DisciplinesTandingRoute = DisciplinesTandingRouteImport.update({
   id: '/disciplines/tanding',
   path: '/disciplines/tanding',
@@ -58,6 +64,7 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/pencak-silat': typeof PencakSilatRoute
   '/disciplines/ganda': typeof DisciplinesGandaRoute
+  '/disciplines/regu': typeof DisciplinesReguRoute
   '/disciplines/tanding': typeof DisciplinesTandingRoute
   '/disciplines/tunggal': typeof DisciplinesTunggalRoute
   '/disciplines/': typeof DisciplinesIndexRoute
@@ -67,6 +74,7 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/pencak-silat': typeof PencakSilatRoute
   '/disciplines/ganda': typeof DisciplinesGandaRoute
+  '/disciplines/regu': typeof DisciplinesReguRoute
   '/disciplines/tanding': typeof DisciplinesTandingRoute
   '/disciplines/tunggal': typeof DisciplinesTunggalRoute
   '/disciplines': typeof DisciplinesIndexRoute
@@ -77,6 +85,7 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/pencak-silat': typeof PencakSilatRoute
   '/disciplines/ganda': typeof DisciplinesGandaRoute
+  '/disciplines/regu': typeof DisciplinesReguRoute
   '/disciplines/tanding': typeof DisciplinesTandingRoute
   '/disciplines/tunggal': typeof DisciplinesTunggalRoute
   '/disciplines/': typeof DisciplinesIndexRoute
@@ -88,6 +97,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/pencak-silat'
     | '/disciplines/ganda'
+    | '/disciplines/regu'
     | '/disciplines/tanding'
     | '/disciplines/tunggal'
     | '/disciplines/'
@@ -97,6 +107,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/pencak-silat'
     | '/disciplines/ganda'
+    | '/disciplines/regu'
     | '/disciplines/tanding'
     | '/disciplines/tunggal'
     | '/disciplines'
@@ -106,6 +117,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/pencak-silat'
     | '/disciplines/ganda'
+    | '/disciplines/regu'
     | '/disciplines/tanding'
     | '/disciplines/tunggal'
     | '/disciplines/'
@@ -116,6 +128,7 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   PencakSilatRoute: typeof PencakSilatRoute
   DisciplinesGandaRoute: typeof DisciplinesGandaRoute
+  DisciplinesReguRoute: typeof DisciplinesReguRoute
   DisciplinesTandingRoute: typeof DisciplinesTandingRoute
   DisciplinesTunggalRoute: typeof DisciplinesTunggalRoute
   DisciplinesIndexRoute: typeof DisciplinesIndexRoute
@@ -158,6 +171,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DisciplinesGandaRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/disciplines/regu': {
+      id: '/disciplines/regu'
+      path: '/disciplines/regu'
+      fullPath: '/disciplines/regu'
+      preLoaderRoute: typeof DisciplinesReguRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/disciplines/tanding': {
       id: '/disciplines/tanding'
       path: '/disciplines/tanding'
@@ -180,6 +200,7 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   PencakSilatRoute: PencakSilatRoute,
   DisciplinesGandaRoute: DisciplinesGandaRoute,
+  DisciplinesReguRoute: DisciplinesReguRoute,
   DisciplinesTandingRoute: DisciplinesTandingRoute,
   DisciplinesTunggalRoute: DisciplinesTunggalRoute,
   DisciplinesIndexRoute: DisciplinesIndexRoute,

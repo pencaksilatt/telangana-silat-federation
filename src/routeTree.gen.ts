@@ -15,6 +15,7 @@ import { Route as PencakSilatRouteImport } from './routes/pencak-silat'
 import { Route as DisciplinesIndexRouteImport } from './routes/disciplines.index'
 import { Route as DisciplinesGandaRouteImport } from './routes/disciplines.ganda'
 import { Route as DisciplinesReguRouteImport } from './routes/disciplines.regu'
+import { Route as DisciplinesSoloCreativeRouteImport } from './routes/disciplines.solo-creative'
 import { Route as DisciplinesTandingRouteImport } from './routes/disciplines.tanding'
 import { Route as DisciplinesTunggalRouteImport } from './routes/disciplines.tunggal'
 
@@ -48,6 +49,11 @@ const DisciplinesReguRoute = DisciplinesReguRouteImport.update({
   path: '/disciplines/regu',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DisciplinesSoloCreativeRoute = DisciplinesSoloCreativeRouteImport.update({
+  id: '/disciplines/solo-creative',
+  path: '/disciplines/solo-creative',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const DisciplinesTandingRoute = DisciplinesTandingRouteImport.update({
   id: '/disciplines/tanding',
   path: '/disciplines/tanding',
@@ -65,6 +71,7 @@ export interface FileRoutesByFullPath {
   '/pencak-silat': typeof PencakSilatRoute
   '/disciplines/ganda': typeof DisciplinesGandaRoute
   '/disciplines/regu': typeof DisciplinesReguRoute
+  '/disciplines/solo-creative': typeof DisciplinesSoloCreativeRoute
   '/disciplines/tanding': typeof DisciplinesTandingRoute
   '/disciplines/tunggal': typeof DisciplinesTunggalRoute
   '/disciplines/': typeof DisciplinesIndexRoute
@@ -75,6 +82,7 @@ export interface FileRoutesByTo {
   '/pencak-silat': typeof PencakSilatRoute
   '/disciplines/ganda': typeof DisciplinesGandaRoute
   '/disciplines/regu': typeof DisciplinesReguRoute
+  '/disciplines/solo-creative': typeof DisciplinesSoloCreativeRoute
   '/disciplines/tanding': typeof DisciplinesTandingRoute
   '/disciplines/tunggal': typeof DisciplinesTunggalRoute
   '/disciplines': typeof DisciplinesIndexRoute
@@ -86,6 +94,7 @@ export interface FileRoutesById {
   '/pencak-silat': typeof PencakSilatRoute
   '/disciplines/ganda': typeof DisciplinesGandaRoute
   '/disciplines/regu': typeof DisciplinesReguRoute
+  '/disciplines/solo-creative': typeof DisciplinesSoloCreativeRoute
   '/disciplines/tanding': typeof DisciplinesTandingRoute
   '/disciplines/tunggal': typeof DisciplinesTunggalRoute
   '/disciplines/': typeof DisciplinesIndexRoute
@@ -98,6 +107,7 @@ export interface FileRouteTypes {
     | '/pencak-silat'
     | '/disciplines/ganda'
     | '/disciplines/regu'
+    | '/disciplines/solo-creative'
     | '/disciplines/tanding'
     | '/disciplines/tunggal'
     | '/disciplines/'
@@ -108,6 +118,7 @@ export interface FileRouteTypes {
     | '/pencak-silat'
     | '/disciplines/ganda'
     | '/disciplines/regu'
+    | '/disciplines/solo-creative'
     | '/disciplines/tanding'
     | '/disciplines/tunggal'
     | '/disciplines'
@@ -118,6 +129,7 @@ export interface FileRouteTypes {
     | '/pencak-silat'
     | '/disciplines/ganda'
     | '/disciplines/regu'
+    | '/disciplines/solo-creative'
     | '/disciplines/tanding'
     | '/disciplines/tunggal'
     | '/disciplines/'
@@ -129,6 +141,7 @@ export interface RootRouteChildren {
   PencakSilatRoute: typeof PencakSilatRoute
   DisciplinesGandaRoute: typeof DisciplinesGandaRoute
   DisciplinesReguRoute: typeof DisciplinesReguRoute
+  DisciplinesSoloCreativeRoute: typeof DisciplinesSoloCreativeRoute
   DisciplinesTandingRoute: typeof DisciplinesTandingRoute
   DisciplinesTunggalRoute: typeof DisciplinesTunggalRoute
   DisciplinesIndexRoute: typeof DisciplinesIndexRoute
@@ -178,6 +191,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DisciplinesReguRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/disciplines/solo-creative': {
+      id: '/disciplines/solo-creative'
+      path: '/disciplines/solo-creative'
+      fullPath: '/disciplines/solo-creative'
+      preLoaderRoute: typeof DisciplinesSoloCreativeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/disciplines/tanding': {
       id: '/disciplines/tanding'
       path: '/disciplines/tanding'
@@ -201,6 +221,7 @@ const rootRouteChildren: RootRouteChildren = {
   PencakSilatRoute: PencakSilatRoute,
   DisciplinesGandaRoute: DisciplinesGandaRoute,
   DisciplinesReguRoute: DisciplinesReguRoute,
+  DisciplinesSoloCreativeRoute: DisciplinesSoloCreativeRoute,
   DisciplinesTandingRoute: DisciplinesTandingRoute,
   DisciplinesTunggalRoute: DisciplinesTunggalRoute,
   DisciplinesIndexRoute: DisciplinesIndexRoute,

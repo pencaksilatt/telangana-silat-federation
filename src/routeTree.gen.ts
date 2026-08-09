@@ -10,33 +10,219 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as EventsRouteImport } from './routes/events'
+import { Route as GalleryRouteImport } from './routes/gallery'
+import { Route as HistoryRouteImport } from './routes/history'
+import { Route as LeadershipRouteImport } from './routes/leadership'
+import { Route as PencakSilatRouteImport } from './routes/pencak-silat'
+import { Route as RulesRouteImport } from './routes/rules'
+import { Route as DisciplinesIndexRouteImport } from './routes/disciplines.index'
+import { Route as DisciplinesGandaRouteImport } from './routes/disciplines.ganda'
+import { Route as DisciplinesReguRouteImport } from './routes/disciplines.regu'
+import { Route as DisciplinesSoloCreativeRouteImport } from './routes/disciplines.solo-creative'
+import { Route as DisciplinesTandingRouteImport } from './routes/disciplines.tanding'
+import { Route as DisciplinesTunggalRouteImport } from './routes/disciplines.tunggal'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EventsRoute = EventsRouteImport.update({
+  id: '/events',
+  path: '/events',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GalleryRoute = GalleryRouteImport.update({
+  id: '/gallery',
+  path: '/gallery',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HistoryRoute = HistoryRouteImport.update({
+  id: '/history',
+  path: '/history',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LeadershipRoute = LeadershipRouteImport.update({
+  id: '/leadership',
+  path: '/leadership',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PencakSilatRoute = PencakSilatRouteImport.update({
+  id: '/pencak-silat',
+  path: '/pencak-silat',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RulesRoute = RulesRouteImport.update({
+  id: '/rules',
+  path: '/rules',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DisciplinesIndexRoute = DisciplinesIndexRouteImport.update({
+  id: '/disciplines/',
+  path: '/disciplines/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DisciplinesGandaRoute = DisciplinesGandaRouteImport.update({
+  id: '/disciplines/ganda',
+  path: '/disciplines/ganda',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DisciplinesReguRoute = DisciplinesReguRouteImport.update({
+  id: '/disciplines/regu',
+  path: '/disciplines/regu',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DisciplinesSoloCreativeRoute = DisciplinesSoloCreativeRouteImport.update({
+  id: '/disciplines/solo-creative',
+  path: '/disciplines/solo-creative',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DisciplinesTandingRoute = DisciplinesTandingRouteImport.update({
+  id: '/disciplines/tanding',
+  path: '/disciplines/tanding',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DisciplinesTunggalRoute = DisciplinesTunggalRouteImport.update({
+  id: '/disciplines/tunggal',
+  path: '/disciplines/tunggal',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/events': typeof EventsRoute
+  '/gallery': typeof GalleryRoute
+  '/history': typeof HistoryRoute
+  '/leadership': typeof LeadershipRoute
+  '/pencak-silat': typeof PencakSilatRoute
+  '/rules': typeof RulesRoute
+  '/disciplines/ganda': typeof DisciplinesGandaRoute
+  '/disciplines/regu': typeof DisciplinesReguRoute
+  '/disciplines/solo-creative': typeof DisciplinesSoloCreativeRoute
+  '/disciplines/tanding': typeof DisciplinesTandingRoute
+  '/disciplines/tunggal': typeof DisciplinesTunggalRoute
+  '/disciplines/': typeof DisciplinesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/events': typeof EventsRoute
+  '/gallery': typeof GalleryRoute
+  '/history': typeof HistoryRoute
+  '/leadership': typeof LeadershipRoute
+  '/pencak-silat': typeof PencakSilatRoute
+  '/rules': typeof RulesRoute
+  '/disciplines/ganda': typeof DisciplinesGandaRoute
+  '/disciplines/regu': typeof DisciplinesReguRoute
+  '/disciplines/solo-creative': typeof DisciplinesSoloCreativeRoute
+  '/disciplines/tanding': typeof DisciplinesTandingRoute
+  '/disciplines/tunggal': typeof DisciplinesTunggalRoute
+  '/disciplines': typeof DisciplinesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/events': typeof EventsRoute
+  '/gallery': typeof GalleryRoute
+  '/history': typeof HistoryRoute
+  '/leadership': typeof LeadershipRoute
+  '/pencak-silat': typeof PencakSilatRoute
+  '/rules': typeof RulesRoute
+  '/disciplines/ganda': typeof DisciplinesGandaRoute
+  '/disciplines/regu': typeof DisciplinesReguRoute
+  '/disciplines/solo-creative': typeof DisciplinesSoloCreativeRoute
+  '/disciplines/tanding': typeof DisciplinesTandingRoute
+  '/disciplines/tunggal': typeof DisciplinesTunggalRoute
+  '/disciplines/': typeof DisciplinesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/events'
+    | '/gallery'
+    | '/history'
+    | '/leadership'
+    | '/pencak-silat'
+    | '/rules'
+    | '/disciplines/ganda'
+    | '/disciplines/regu'
+    | '/disciplines/solo-creative'
+    | '/disciplines/tanding'
+    | '/disciplines/tunggal'
+    | '/disciplines/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/events'
+    | '/gallery'
+    | '/history'
+    | '/leadership'
+    | '/pencak-silat'
+    | '/rules'
+    | '/disciplines/ganda'
+    | '/disciplines/regu'
+    | '/disciplines/solo-creative'
+    | '/disciplines/tanding'
+    | '/disciplines/tunggal'
+    | '/disciplines'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/events'
+    | '/gallery'
+    | '/history'
+    | '/leadership'
+    | '/pencak-silat'
+    | '/rules'
+    | '/disciplines/ganda'
+    | '/disciplines/regu'
+    | '/disciplines/solo-creative'
+    | '/disciplines/tanding'
+    | '/disciplines/tunggal'
+    | '/disciplines/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  ContactRoute: typeof ContactRoute
+  EventsRoute: typeof EventsRoute
+  GalleryRoute: typeof GalleryRoute
+  HistoryRoute: typeof HistoryRoute
+  LeadershipRoute: typeof LeadershipRoute
+  PencakSilatRoute: typeof PencakSilatRoute
+  RulesRoute: typeof RulesRoute
+  DisciplinesGandaRoute: typeof DisciplinesGandaRoute
+  DisciplinesReguRoute: typeof DisciplinesReguRoute
+  DisciplinesSoloCreativeRoute: typeof DisciplinesSoloCreativeRoute
+  DisciplinesTandingRoute: typeof DisciplinesTandingRoute
+  DisciplinesTunggalRoute: typeof DisciplinesTunggalRoute
+  DisciplinesIndexRoute: typeof DisciplinesIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +234,123 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/events': {
+      id: '/events'
+      path: '/events'
+      fullPath: '/events'
+      preLoaderRoute: typeof EventsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/gallery': {
+      id: '/gallery'
+      path: '/gallery'
+      fullPath: '/gallery'
+      preLoaderRoute: typeof GalleryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/history': {
+      id: '/history'
+      path: '/history'
+      fullPath: '/history'
+      preLoaderRoute: typeof HistoryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/leadership': {
+      id: '/leadership'
+      path: '/leadership'
+      fullPath: '/leadership'
+      preLoaderRoute: typeof LeadershipRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pencak-silat': {
+      id: '/pencak-silat'
+      path: '/pencak-silat'
+      fullPath: '/pencak-silat'
+      preLoaderRoute: typeof PencakSilatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/rules': {
+      id: '/rules'
+      path: '/rules'
+      fullPath: '/rules'
+      preLoaderRoute: typeof RulesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/disciplines/': {
+      id: '/disciplines/'
+      path: '/disciplines'
+      fullPath: '/disciplines/'
+      preLoaderRoute: typeof DisciplinesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/disciplines/ganda': {
+      id: '/disciplines/ganda'
+      path: '/disciplines/ganda'
+      fullPath: '/disciplines/ganda'
+      preLoaderRoute: typeof DisciplinesGandaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/disciplines/regu': {
+      id: '/disciplines/regu'
+      path: '/disciplines/regu'
+      fullPath: '/disciplines/regu'
+      preLoaderRoute: typeof DisciplinesReguRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/disciplines/solo-creative': {
+      id: '/disciplines/solo-creative'
+      path: '/disciplines/solo-creative'
+      fullPath: '/disciplines/solo-creative'
+      preLoaderRoute: typeof DisciplinesSoloCreativeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/disciplines/tanding': {
+      id: '/disciplines/tanding'
+      path: '/disciplines/tanding'
+      fullPath: '/disciplines/tanding'
+      preLoaderRoute: typeof DisciplinesTandingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/disciplines/tunggal': {
+      id: '/disciplines/tunggal'
+      path: '/disciplines/tunggal'
+      fullPath: '/disciplines/tunggal'
+      preLoaderRoute: typeof DisciplinesTunggalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  ContactRoute: ContactRoute,
+  EventsRoute: EventsRoute,
+  GalleryRoute: GalleryRoute,
+  HistoryRoute: HistoryRoute,
+  LeadershipRoute: LeadershipRoute,
+  PencakSilatRoute: PencakSilatRoute,
+  RulesRoute: RulesRoute,
+  DisciplinesGandaRoute: DisciplinesGandaRoute,
+  DisciplinesReguRoute: DisciplinesReguRoute,
+  DisciplinesSoloCreativeRoute: DisciplinesSoloCreativeRoute,
+  DisciplinesTandingRoute: DisciplinesTandingRoute,
+  DisciplinesTunggalRoute: DisciplinesTunggalRoute,
+  DisciplinesIndexRoute: DisciplinesIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

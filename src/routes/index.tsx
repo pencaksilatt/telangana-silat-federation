@@ -1,36 +1,20 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Header } from "@/components/site/Header";
+import { SiteLayout } from "@/components/site/Layout";
 import { Hero } from "@/components/site/Hero";
 import {
-  AboutSection,
-  AffiliationStrip,
-  FourPillars,
-  GlobalSilatSection,
-  HistoryTimeline,
-  WhatIsSection,
-} from "@/components/site/SectionsCore";
-import {
-  ArtisticSection,
-  BenefitsGrid,
-  DisciplinesSection,
-  EventsSection,
-  RulesSection,
-  ScoringSection,
-  TandingSection,
-  TrainingSection,
-} from "@/components/site/SectionsSport";
-import {
-  CoachSection,
-  GallerySection,
-  LeadershipSection,
-  TestimonialsSection,
-} from "@/components/site/SectionsPeople";
-import { ContactSection, Footer } from "@/components/site/ContactFooter";
-import { FloatingWhatsApp } from "@/components/site/WhatsAppButton";
+  AboutPreview,
+  AffiliationPreview,
+  ContactCta,
+  DisciplinesPreview,
+  EventsPreview,
+  GalleryPreview,
+  GlancePreview,
+  LeadershipPreview,
+} from "@/components/site/HomePreviews";
 
 const TITLE = "Pencak Silat Sports Association of Telangana | PSSATG";
 const DESCRIPTION =
-  "Official website of the Pencak Silat Sports Association of Telangana, promoting Pencak Silat training, sports, competitions, discipline, traditional martial arts and athlete development across Telangana.";
+  "Official website of the Pencak Silat Sports Association of Telangana — promoting the art, sport and heritage of Pencak Silat through training, competition and athlete development.";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -38,18 +22,11 @@ export const Route = createFileRoute("/")({
     meta: [
       { title: TITLE },
       { name: "description", content: DESCRIPTION },
-      {
-        name: "keywords",
-        content:
-          "Pencak Silat Telangana, PSSATG, Pencak Silat Sports Association Telangana, Pencak Silat Hyderabad, Pencak Silat Medchal, Pencak Silat training Telangana, Pencak Silat competitions Telangana, Tanding, Tunggal, Ganda, Regu, Solo Creative",
-      },
       { property: "og:title", content: TITLE },
       { property: "og:description", content: DESCRIPTION },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "/" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "/" }],
     scripts: [
       {
         type: "application/ld+json",
@@ -77,32 +54,16 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   return (
-    <div className="min-h-screen w-full overflow-x-hidden bg-background">
-      <Header />
-      <main>
-        <Hero />
-        <AffiliationStrip />
-        <AboutSection />
-        <WhatIsSection />
-        <HistoryTimeline />
-        <GlobalSilatSection />
-        <FourPillars />
-        <DisciplinesSection />
-        <TandingSection />
-        <ScoringSection />
-        <RulesSection />
-        <ArtisticSection />
-        <BenefitsGrid />
-        <TrainingSection />
-        <EventsSection />
-        <LeadershipSection />
-        <CoachSection />
-        <GallerySection />
-        <TestimonialsSection />
-        <ContactSection />
-      </main>
-      <Footer />
-      <FloatingWhatsApp />
-    </div>
+    <SiteLayout>
+      <Hero />
+      <AffiliationPreview />
+      <AboutPreview />
+      <GlancePreview />
+      <DisciplinesPreview />
+      <EventsPreview />
+      <LeadershipPreview />
+      <GalleryPreview />
+      <ContactCta />
+    </SiteLayout>
   );
 }

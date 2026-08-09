@@ -1,15 +1,23 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Menu, Phone, X } from "lucide-react";
-import logo from "@/assets/pencak.png.asset.json";
+import { Link, useRouterState } from "@tanstack/react-router";
+import { ChevronDown, Menu, Phone, X } from "lucide-react";
+import logo from "@/assets/pssatg-logo.png.asset.json";
 import { NAV, ORG } from "@/data/site";
 import { SocialIcons } from "./SocialIcons";
 import { cn } from "@/lib/utils";
 
+function isActive(pathname: string, to: string) {
+  if (to === "/") return pathname === "/";
+  return pathname === to || pathname.startsWith(`${to}/`);
+}
+
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  const [active, setActive] = useState("#home");
+  const [dropdown, setDropdown] = useState(false);
+  const [mobileSub, setMobileSub] = useState(false);
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -19,22 +27,9 @@ export function Header() {
   }, []);
 
   useEffect(() => {
-    const ids = NAV.map((n) => n.href.slice(1));
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((e) => e.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-        if (visible) setActive(`#${visible.target.id}`);
-      },
-      { rootMargin: "-45% 0px -50% 0px", threshold: [0.01, 0.2] },
-    );
-    ids.forEach((id) => {
-      const el = document.getElementById(id);
-      if (el) observer.observe(el);
-    });
-    return () => observer.disconnect();
-  }, []);
+    setOpen(false);
+    setDropdown(false);
+  }, [pathname]);
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -49,7 +44,7 @@ export function Header() {
         "fixed inset-x-0 top-0 z-40 transition-all duration-500",
         scrolled
           ? "border-b border-offwhite/10 bg-navy-deep/92 backdrop-blur-xl shadow-[0_10px_40px_-24px_rgba(0,0,0,0.9)]"
-          : "bg-transparent",
+          : "bg-[linear-gradient(to_bottom,color-mix(in_oklab,var(--navy-deep)_78%,transparent),transparent)]",
       )}
     >
       <div
@@ -76,7 +71,7 @@ export function Header() {
       </div>
 
       <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-4 px-5 py-3 sm:px-8">
-        <a href="#home" className="flex min-w-0 items-center gap-3" aria-label={ORG.name}>
+        <Link to="/" className="flex min-w-0 items-center gap-3" aria-label={ORG.name}>
           <img
             src={logo.url}
             alt="Pencak Silat Sports Association of Telangana official emblem"
@@ -92,37 +87,103 @@ export function Header() {
               Sports Association of Telangana
             </span>
           </span>
-        </a>
+        </Link>
 
         <nav className="hidden items-center gap-0.5 xl:flex" aria-label="Primary">
-          {NAV.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              className={cn(
-                "relative whitespace-nowrap px-2.5 py-2 font-display text-[0.72rem] font-medium uppercase tracking-[0.13em] transition-colors duration-300",
-                active === item.href ? "text-gold" : "text-offwhite/80 hover:text-gold",
-              )}
-            >
-              {item.label}
-              <span
+          {NAV.map((item) => {
+            const active = isActive(pathname, item.to);
+            if (item.children) {
+              return (
+                <div
+                  key={item.to}
+                  className="relative"
+                  onMouseEnter={() => setDropdown(true)}
+                  onMouseLeave={() => setDropdown(false)}
+                >
+                  <Link
+                    to={item.to}
+                    className={cn(
+                      "relative flex items-center gap-1 whitespace-nowrap px-2.5 py-2 font-display text-[0.72rem] font-medium uppercase tracking-[0.13em] transition-colors duration-300",
+                      active ? "text-gold" : "text-offwhite/80 hover:text-gold",
+                    )}
+                  >
+                    {item.label}
+                    <ChevronDown
+                      className={cn(
+                        "h-3 w-3 transition-transform duration-300",
+                        dropdown && "rotate-180",
+                      )}
+                      aria-hidden="true"
+                    />
+                    <span
+                      className={cn(
+                        "absolute inset-x-2.5 -bottom-0.5 h-0.5 origin-left bg-gold transition-transform duration-300",
+                        active ? "scale-x-100" : "scale-x-0",
+                      )}
+                      aria-hidden="true"
+                    />
+                  </Link>
+                  <AnimatePresence>
+                    {dropdown ? (
+                      <motion.div
+                        initial={{ opacity: 0, y: 8 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: 6 }}
+                        transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
+                        className="absolute left-0 top-full w-56 pt-2"
+                      >
+                        <ul className="overflow-hidden rounded-sm border border-offwhite/12 bg-navy-deep/97 py-1.5 shadow-[0_24px_60px_-24px_rgba(0,0,0,0.9)] backdrop-blur-xl">
+                          {item.children.map((c) => (
+                            <li key={c.to}>
+                              <Link
+                                to={c.to}
+                                className={cn(
+                                  "block border-l-2 px-4 py-2 font-display text-[0.7rem] uppercase tracking-[0.16em] transition-colors",
+                                  isActive(pathname, c.to)
+                                    ? "border-gold bg-gold/10 text-gold"
+                                    : "border-transparent text-offwhite/75 hover:border-gold hover:bg-gold/5 hover:text-gold",
+                                )}
+                              >
+                                {c.label}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      </motion.div>
+                    ) : null}
+                  </AnimatePresence>
+                </div>
+              );
+            }
+            return (
+              <Link
+                key={item.to}
+                to={item.to}
                 className={cn(
-                  "absolute inset-x-2.5 -bottom-0.5 h-0.5 origin-left bg-gold transition-transform duration-300",
-                  active === item.href ? "scale-x-100" : "scale-x-0",
+                  "relative whitespace-nowrap px-2.5 py-2 font-display text-[0.72rem] font-medium uppercase tracking-[0.13em] transition-colors duration-300",
+                  active ? "text-gold" : "text-offwhite/80 hover:text-gold",
                 )}
-                aria-hidden="true"
-              />
-            </a>
-          ))}
+              >
+                {item.label}
+                <span
+                  className={cn(
+                    "absolute inset-x-2.5 -bottom-0.5 h-0.5 origin-left bg-gold transition-transform duration-300",
+                    active ? "scale-x-100" : "scale-x-0",
+                  )}
+                  aria-hidden="true"
+                />
+              </Link>
+            );
+          })}
         </nav>
 
         <div className="flex items-center gap-2">
-          <a
-            href="#contact"
+          <Link
+            to="/contact"
             className="hidden whitespace-nowrap rounded-sm bg-gold px-5 py-2.5 font-display text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-navy-deep transition-all duration-300 hover:bg-gold-metal hover:shadow-[0_16px_38px_-20px_var(--gold)] lg:inline-flex"
           >
             Join / Enquire
-          </a>
+          </Link>
           <button
             type="button"
             onClick={() => setOpen(true)}
@@ -173,26 +234,92 @@ export function Header() {
               <nav className="mt-8 flex-1 overflow-y-auto" aria-label="Mobile">
                 <ul className="space-y-1">
                   {NAV.map((item) => (
-                    <li key={item.href}>
-                      <a
-                        href={item.href}
-                        onClick={() => setOpen(false)}
-                        className="block border-b border-offwhite/10 py-3 font-display text-sm uppercase tracking-[0.16em] text-offwhite/85 transition-colors hover:text-gold"
-                      >
-                        {item.label}
-                      </a>
+                    <li key={item.to}>
+                      {item.children ? (
+                        <>
+                          <div className="flex items-center justify-between border-b border-offwhite/10">
+                            <Link
+                              to={item.to}
+                              onClick={() => setOpen(false)}
+                              className={cn(
+                                "block flex-1 py-3 font-display text-sm uppercase tracking-[0.16em] transition-colors",
+                                isActive(pathname, item.to)
+                                  ? "text-gold"
+                                  : "text-offwhite/85 hover:text-gold",
+                              )}
+                            >
+                              {item.label}
+                            </Link>
+                            <button
+                              type="button"
+                              aria-label="Toggle disciplines submenu"
+                              aria-expanded={mobileSub}
+                              onClick={() => setMobileSub((v) => !v)}
+                              className="grid h-9 w-9 place-items-center text-offwhite/70 hover:text-gold"
+                            >
+                              <ChevronDown
+                                className={cn(
+                                  "h-4 w-4 transition-transform duration-300",
+                                  mobileSub && "rotate-180",
+                                )}
+                              />
+                            </button>
+                          </div>
+                          <AnimatePresence initial={false}>
+                            {mobileSub ? (
+                              <motion.ul
+                                initial={{ height: 0, opacity: 0 }}
+                                animate={{ height: "auto", opacity: 1 }}
+                                exit={{ height: 0, opacity: 0 }}
+                                transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+                                className="overflow-hidden"
+                              >
+                                {item.children.map((c) => (
+                                  <li key={c.to}>
+                                    <Link
+                                      to={c.to}
+                                      onClick={() => setOpen(false)}
+                                      className={cn(
+                                        "block border-b border-offwhite/5 py-2.5 pl-4 font-display text-[0.78rem] uppercase tracking-[0.14em] transition-colors",
+                                        isActive(pathname, c.to)
+                                          ? "text-gold"
+                                          : "text-offwhite/65 hover:text-gold",
+                                      )}
+                                    >
+                                      {c.label}
+                                    </Link>
+                                  </li>
+                                ))}
+                              </motion.ul>
+                            ) : null}
+                          </AnimatePresence>
+                        </>
+                      ) : (
+                        <Link
+                          to={item.to}
+                          onClick={() => setOpen(false)}
+                          className={cn(
+                            "block border-b border-offwhite/10 py-3 font-display text-sm uppercase tracking-[0.16em] transition-colors",
+                            isActive(pathname, item.to)
+                              ? "text-gold"
+                              : "text-offwhite/85 hover:text-gold",
+                          )}
+                        >
+                          {item.label}
+                        </Link>
+                      )}
                     </li>
                   ))}
                 </ul>
               </nav>
               <div className="mt-6 space-y-4">
-                <a
-                  href="#contact"
+                <Link
+                  to="/contact"
                   onClick={() => setOpen(false)}
                   className="block rounded-sm bg-gold py-3 text-center font-display text-xs font-semibold uppercase tracking-[0.18em] text-navy-deep"
                 >
                   Join / Enquire
-                </a>
+                </Link>
                 <SocialIcons />
               </div>
             </motion.div>

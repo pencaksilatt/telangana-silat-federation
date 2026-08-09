@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
+import { Route as EventsRouteImport } from './routes/events'
 import { Route as PencakSilatRouteImport } from './routes/pencak-silat'
 import { Route as DisciplinesIndexRouteImport } from './routes/disciplines.index'
 import { Route as DisciplinesGandaRouteImport } from './routes/disciplines.ganda'
@@ -27,6 +28,11 @@ const IndexRoute = IndexRouteImport.update({
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EventsRoute = EventsRouteImport.update({
+  id: '/events',
+  path: '/events',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PencakSilatRoute = PencakSilatRouteImport.update({
@@ -68,6 +74,7 @@ const DisciplinesTunggalRoute = DisciplinesTunggalRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/events': typeof EventsRoute
   '/pencak-silat': typeof PencakSilatRoute
   '/disciplines/ganda': typeof DisciplinesGandaRoute
   '/disciplines/regu': typeof DisciplinesReguRoute
@@ -79,6 +86,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/events': typeof EventsRoute
   '/pencak-silat': typeof PencakSilatRoute
   '/disciplines/ganda': typeof DisciplinesGandaRoute
   '/disciplines/regu': typeof DisciplinesReguRoute
@@ -91,6 +99,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/events': typeof EventsRoute
   '/pencak-silat': typeof PencakSilatRoute
   '/disciplines/ganda': typeof DisciplinesGandaRoute
   '/disciplines/regu': typeof DisciplinesReguRoute
@@ -104,6 +113,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
+    | '/events'
     | '/pencak-silat'
     | '/disciplines/ganda'
     | '/disciplines/regu'
@@ -115,6 +125,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/about'
+    | '/events'
     | '/pencak-silat'
     | '/disciplines/ganda'
     | '/disciplines/regu'
@@ -126,6 +137,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/about'
+    | '/events'
     | '/pencak-silat'
     | '/disciplines/ganda'
     | '/disciplines/regu'
@@ -138,6 +150,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  EventsRoute: typeof EventsRoute
   PencakSilatRoute: typeof PencakSilatRoute
   DisciplinesGandaRoute: typeof DisciplinesGandaRoute
   DisciplinesReguRoute: typeof DisciplinesReguRoute
@@ -161,6 +174,13 @@ declare module '@tanstack/react-router' {
       path: '/about'
       fullPath: '/about'
       preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/events': {
+      id: '/events'
+      path: '/events'
+      fullPath: '/events'
+      preLoaderRoute: typeof EventsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/pencak-silat': {
@@ -218,6 +238,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  EventsRoute: EventsRoute,
   PencakSilatRoute: PencakSilatRoute,
   DisciplinesGandaRoute: DisciplinesGandaRoute,
   DisciplinesReguRoute: DisciplinesReguRoute,

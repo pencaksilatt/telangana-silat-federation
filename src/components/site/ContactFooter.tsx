@@ -1,8 +1,10 @@
 import { useState, type FormEvent } from "react";
+import { Link } from "@tanstack/react-router";
 import { Mail, MapPin, Navigation, Phone, Send } from "lucide-react";
 import { toast } from "sonner";
-import logo from "@/assets/pencak.png.asset.json";
-import { ENQUIRY_TYPES, NAV, ORG, waLink } from "@/data/site";
+import logo from "@/assets/pssatg-logo.png.asset.json";
+import { DISCIPLINE_LINKS, ENQUIRY_TYPES, NAV, ORG, waLink } from "@/data/site";
+
 import { Reveal, Section, SectionHeading } from "./primitives";
 import { SocialIcons } from "./SocialIcons";
 import { WhatsAppCta } from "./WhatsAppButton";

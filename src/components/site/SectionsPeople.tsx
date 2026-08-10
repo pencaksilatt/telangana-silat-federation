@@ -1,9 +1,6 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Award, Quote, ShieldCheck, X } from "lucide-react";
-import presidentImg from "@/assets/president.jpeg.asset.json";
-import secretaryImg from "@/assets/general_secretary.jpeg.asset.json";
-import treasurerImg from "@/assets/treasurer.jpeg.asset.json";
 import gandaImg from "@/assets/ganda.jpg";
 import reguImg from "@/assets/regu.jpg";
 import soloImg from "@/assets/solo-creative.jpg";
@@ -12,13 +9,15 @@ import trainingImg from "@/assets/training.jpg";
 import tunggalImg from "@/assets/tunggal.jpg";
 import eventImg from "@/assets/event.jpg";
 import { TESTIMONIALS } from "@/data/site";
+import { ASSETS } from "@/data/assets";
+import { SafeImage } from "./SafeImage";
 import { Reveal, Section, SectionHeading, StaggerGroup, StaggerItem } from "./primitives";
 import { cn } from "@/lib/utils";
 
 const OFFICIALS = [
-  { role: "President", name: "C.H. Dashratham", photo: presidentImg.url },
-  { role: "Secretary General", name: "D. Durga Satish Goud", photo: secretaryImg.url },
-  { role: "Treasurer", name: "Vinay Kumar Gogula", photo: treasurerImg.url },
+  { role: "President", name: "C.H. Dashratham", photo: ASSETS.president },
+  { role: "Secretary General", name: "D. Durga Satish Goud", photo: ASSETS.secretaryGeneral },
+  { role: "Treasurer", name: "Vinay Kumar Gogula", photo: ASSETS.treasurer },
 ];
 
 export function LeadershipSection() {
@@ -66,7 +65,7 @@ export function CoachSection() {
         <Reveal>
           <div className="relative mx-auto max-w-xs overflow-hidden rounded-sm border border-gold/40">
             <img
-              src={secretaryImg.url}
+              src={ASSETS.secretaryGeneral}
               alt="Durga Satish Donga, Telangana Pencak Silat Chief Coach"
               loading="lazy"
               className="aspect-[4/5] w-full object-cover object-top"

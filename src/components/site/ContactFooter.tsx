@@ -2,7 +2,7 @@ import { useState, type FormEvent } from "react";
 import { Link } from "@tanstack/react-router";
 import { Mail, MapPin, Navigation, Phone, Send } from "lucide-react";
 import { toast } from "sonner";
-import logo from "@/assets/pssatg-logo.png.asset.json";
+import { ASSETS } from "@/data/assets";
 import { DISCIPLINE_LINKS, ENQUIRY_TYPES, NAV, ORG, waLink } from "@/data/site";
 
 import { Reveal, Section, SectionHeading } from "./primitives";
@@ -273,7 +273,7 @@ export function Footer() {
           <div>
             <Link to="/" className="flex items-center gap-3">
               <img
-                src={logo.url}
+                src={ASSETS.logo}
                 alt="Pencak Silat Sports Association of Telangana emblem"
                 width={56}
                 height={68}

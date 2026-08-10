@@ -10,9 +10,6 @@ import {
 } from "lucide-react";
 import aboutImg from "@/assets/training.jpg";
 import eventImg from "@/assets/event.jpg";
-import presidentImg from "@/assets/president.jpeg.asset.json";
-import secretaryImg from "@/assets/general_secretary.jpeg.asset.json";
-import treasurerImg from "@/assets/treasurer.jpeg.asset.json";
 import gandaImg from "@/assets/ganda.jpg";
 import reguImg from "@/assets/regu.jpg";
 import soloImg from "@/assets/solo-creative.jpg";
@@ -239,9 +236,9 @@ export function EventsPreview() {
 }
 
 const OFFICIALS = [
-  { role: "President", name: "C.H. Dashratham", photo: presidentImg.url },
-  { role: "Secretary General", name: "D. Durga Satish Goud", photo: secretaryImg.url },
-  { role: "Treasurer", name: "Vinay Kumar Gogula", photo: treasurerImg.url },
+  { role: "President", name: "C.H. Dashratham", photo: ASSETS.president },
+  { role: "Secretary General", name: "D. Durga Satish Goud", photo: ASSETS.secretaryGeneral },
+  { role: "Treasurer", name: "Vinay Kumar Gogula", photo: ASSETS.treasurer },
 ];
 
 export function LeadershipPreview() {

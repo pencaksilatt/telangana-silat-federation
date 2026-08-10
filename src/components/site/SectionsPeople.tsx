@@ -34,7 +34,7 @@ export function LeadershipSection() {
           <StaggerItem key={o.role} className="h-full">
             <article className="group h-full overflow-hidden rounded-sm border border-border bg-background shadow-[0_20px_50px_-30px_rgba(7,20,38,0.55)] transition-all duration-500 hover:-translate-y-2 hover:border-gold/60 hover:shadow-[0_28px_60px_-28px_rgba(7,20,38,0.5)]">
               <div className="relative aspect-[4/5] overflow-hidden bg-navy-deep">
-                <img
+                <SafeImage
                   src={o.photo}
                   alt={`${o.name}, ${o.role}, Pencak Silat Sports Association of Telangana`}
                   loading="lazy"

@@ -257,7 +257,7 @@ export function LeadershipPreview() {
           <StaggerItem key={o.role} className="h-full">
             <article className="group h-full overflow-hidden rounded-sm border border-border bg-background transition-all duration-500 hover:-translate-y-1.5 hover:border-gold/60">
               <div className="relative aspect-[4/5] overflow-hidden bg-navy-deep">
-                <img
+                <SafeImage
                   src={o.photo}
                   alt={`${o.name}, ${o.role}`}
                   loading="lazy"

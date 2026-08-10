@@ -10,23 +10,18 @@ import {
 } from "lucide-react";
 import aboutImg from "@/assets/training.jpg";
 import eventImg from "@/assets/event.jpg";
+import presidentImg from "@/assets/president.jpeg";
+import secretaryImg from "@/assets/general_secretary.jpeg";
+import treasurerImg from "@/assets/treasurer.jpeg";
 import gandaImg from "@/assets/ganda.jpg";
 import reguImg from "@/assets/regu.jpg";
 import soloImg from "@/assets/solo-creative.jpg";
 import tandingImg from "@/assets/tanding.jpg";
 import tunggalImg from "@/assets/tunggal.jpg";
 import { AFFILIATIONS, EVENTS, PILLARS } from "@/data/site";
-import { ASSETS } from "@/data/assets";
 import { SafeImage } from "./SafeImage";
 import { DISCIPLINES } from "./SectionsSport";
-import {
-  Eyebrow,
-  Reveal,
-  Section,
-  SectionHeading,
-  StaggerGroup,
-  StaggerItem,
-} from "./primitives";
+import { Eyebrow, Reveal, Section, SectionHeading, StaggerGroup, StaggerItem } from "./primitives";
 import { ViewMore } from "./Layout";
 import { WhatsAppCta } from "./WhatsAppButton";
 
@@ -238,9 +233,9 @@ export function EventsPreview() {
 }
 
 const OFFICIALS = [
-  { role: "President", name: "C.H. Dashratham", photo: ASSETS.president },
-  { role: "Secretary General", name: "D. Durga Satish Goud", photo: ASSETS.secretaryGeneral },
-  { role: "Treasurer", name: "Vinay Kumar Gogula", photo: ASSETS.treasurer },
+  { role: "President", name: "C.H. Dashratham", photo: presidentImg },
+  { role: "Secretary General", name: "D. Durga Satish Goud", photo: secretaryImg },
+  { role: "Treasurer", name: "Vinay Kumar Gogula", photo: treasurerImg },
 ];
 
 export function LeadershipPreview() {

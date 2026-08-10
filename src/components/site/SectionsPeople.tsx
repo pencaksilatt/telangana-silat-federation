@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Award, Quote, ShieldCheck, X } from "lucide-react";
+import presidentImg from "@/assets/president.jpeg";
+import secretaryImg from "@/assets/general_secretary.jpeg";
+import treasurerImg from "@/assets/treasurer.jpeg";
 import gandaImg from "@/assets/ganda.jpg";
 import reguImg from "@/assets/regu.jpg";
 import soloImg from "@/assets/solo-creative.jpg";
@@ -9,15 +12,14 @@ import trainingImg from "@/assets/training.jpg";
 import tunggalImg from "@/assets/tunggal.jpg";
 import eventImg from "@/assets/event.jpg";
 import { TESTIMONIALS } from "@/data/site";
-import { ASSETS } from "@/data/assets";
 import { SafeImage } from "./SafeImage";
 import { Reveal, Section, SectionHeading, StaggerGroup, StaggerItem } from "./primitives";
 import { cn } from "@/lib/utils";
 
 const OFFICIALS = [
-  { role: "President", name: "C.H. Dashratham", photo: ASSETS.president },
-  { role: "Secretary General", name: "D. Durga Satish Goud", photo: ASSETS.secretaryGeneral },
-  { role: "Treasurer", name: "Vinay Kumar Gogula", photo: ASSETS.treasurer },
+  { role: "President", name: "C.H. Dashratham", photo: presidentImg },
+  { role: "Secretary General", name: "D. Durga Satish Goud", photo: secretaryImg },
+  { role: "Treasurer", name: "Vinay Kumar Gogula", photo: treasurerImg },
 ];
 
 export function LeadershipSection() {
@@ -65,7 +67,7 @@ export function CoachSection() {
         <Reveal>
           <div className="relative mx-auto max-w-xs overflow-hidden rounded-sm border border-gold/40">
             <img
-              src={ASSETS.secretaryGeneral}
+              src={secretaryImg}
               alt="Durga Satish Donga, Telangana Pencak Silat Chief Coach"
               loading="lazy"
               className="aspect-[4/5] w-full object-cover object-top"
@@ -73,11 +75,7 @@ export function CoachSection() {
           </div>
         </Reveal>
         <div>
-          <SectionHeading
-            dark
-            eyebrow="Technical"
-            title="Coaching &amp; Technical Leadership"
-          />
+          <SectionHeading dark eyebrow="Technical" title="Coaching &amp; Technical Leadership" />
           <Reveal delay={0.1}>
             <div className="mt-7 space-y-4">
               <p className="font-display text-2xl font-bold uppercase tracking-tight text-gold">

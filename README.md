@@ -13,6 +13,7 @@ Do NOT create a generic gym, fitness, or commercial martial-arts website.
 The website must look like an official state-level sports federation/association website — authoritative, prestigious, elegant, energetic, trustworthy and professional.
 
 The design should communicate:
+
 - Martial arts
 - Discipline
 - Sports excellence
@@ -23,8 +24,9 @@ The design should communicate:
 - National and international recognition
 
 ==================================================
+
 1. PROVIDED ASSETS — USE THEM CAREFULLY
-==================================================
+   \==================================================
 
 I have uploaded 5 reference images/assets.
 
@@ -47,6 +49,7 @@ Asset 5:
 Official association letterhead.
 
 The letterhead contains important official information, including:
+
 - Association name
 - Affiliation information
 - Recognition information
@@ -61,8 +64,7 @@ Use the letterhead as the source of truth for these official details.
 
 DO NOT invent additional officials, affiliations, awards, rankings or government recognition.
 
-==================================================
-2. OFFICIAL ASSOCIATION INFORMATION
+================================================== 2. OFFICIAL ASSOCIATION INFORMATION
 ==================================================
 
 Website name:
@@ -91,6 +93,7 @@ section containing these three officials.
 Use the supplied photos for these members.
 
 Display:
+
 - professional portrait
 - designation
 - name
@@ -99,8 +102,7 @@ Display:
 
 Do not exaggerate their titles.
 
-==================================================
-3. OFFICIAL ADDRESS
+================================================== 3. OFFICIAL ADDRESS
 ==================================================
 
 Use the address exactly as shown on the supplied letterhead:
@@ -121,8 +123,7 @@ pencaksilatsportsassociationtg@gmail.com
 
 Use the official information from the letterhead wherever applicable.
 
-==================================================
-4. SOCIAL MEDIA
+================================================== 4. SOCIAL MEDIA
 ==================================================
 
 Add social media icons throughout the website where appropriate.
@@ -147,6 +148,7 @@ Use the exact URLs supplied with this project.
 Do NOT create fake social media accounts.
 
 Social icons:
+
 - Instagram
 - X / Twitter
 - Facebook
@@ -157,8 +159,7 @@ Use elegant official-looking icons.
 
 Footer should contain all social links.
 
-==================================================
-5. WHATSAPP INTEGRATION
+================================================== 5. WHATSAPP INTEGRATION
 ==================================================
 
 Integrate WhatsApp prominently.
@@ -176,6 +177,7 @@ Clicking it should open WhatsApp with a pre-filled message such as:
 "Hello, I would like to enquire about Pencak Silat Sports Association of Telangana."
 
 Also add WhatsApp enquiry buttons in:
+
 - Contact section
 - Training section
 - Events section
@@ -183,23 +185,20 @@ Also add WhatsApp enquiry buttons in:
 
 Do not use any other WhatsApp number.
 
-==================================================
-6. OVERALL DESIGN DIRECTION
+================================================== 6. OVERALL DESIGN DIRECTION
 ==================================================
 
 Create a premium sports federation aesthetic.
 
 The visual style should combine:
 
-OFFICIAL SPORTS FEDERATION
-+
-PREMIUM MODERN WEBSITE
-+
-MARTIAL ARTS ENERGY
-+
+OFFICIAL SPORTS FEDERATION +
+PREMIUM MODERN WEBSITE +
+MARTIAL ARTS ENERGY +
 TELANGANA CULTURAL IDENTITY
 
 Avoid:
+
 - cheap gym aesthetics
 - excessive neon
 - childish martial arts graphics
@@ -210,13 +209,13 @@ Avoid:
 - cluttered layouts
 
 The website should feel comparable in quality to:
+
 - international sports federations
 - Olympic-style sports organizations
 - professional national sports associations
 - premium martial arts organizations
 
-==================================================
-7. COLOR PALETTE
+================================================== 7. COLOR PALETTE
 ==================================================
 
 Primary colors:
@@ -243,6 +242,7 @@ Dark Charcoal:
 #111827
 
 Use gold mainly for:
+
 - highlights
 - borders
 - section labels
@@ -263,8 +263,7 @@ dark sports sections
 light history sections
 dark CTA/footer
 
-==================================================
-8. TYPOGRAPHY
+================================================== 8. TYPOGRAPHY
 ==================================================
 
 Use a premium modern typography system.
@@ -282,8 +281,7 @@ Headings should be bold and authoritative.
 
 Body text should remain highly readable.
 
-==================================================
-9. HEADER / NAVIGATION
+================================================== 9. HEADER / NAVIGATION
 ==================================================
 
 Create a premium sticky header.
@@ -312,6 +310,7 @@ Right side:
 Social icons may appear in a compact top utility bar or navigation dropdown.
 
 Header requirements:
+
 - transparent over hero initially
 - becomes solid dark navy after scrolling
 - smooth transition
@@ -320,6 +319,7 @@ Header requirements:
 - gold active navigation indicator
 
 Mobile:
+
 - hamburger menu
 - logo
 - WhatsApp/contact action
@@ -327,8 +327,7 @@ Mobile:
 
 Do NOT make the header oversized.
 
-==================================================
-10. HERO SECTION
+================================================== 10. HERO SECTION
 ==================================================
 
 Create a spectacular cinematic hero.
@@ -377,6 +376,7 @@ ENQUIRE NOW
 Add a subtle scroll indicator.
 
 Use Framer Motion for:
+
 - text reveal
 - image zoom
 - fade transitions
@@ -388,8 +388,7 @@ Logo should remain sharp and static.
 
 Do NOT animate the logo itself.
 
-==================================================
-11. OFFICIAL AFFILIATIONS / RECOGNITION
+================================================== 11. OFFICIAL AFFILIATIONS / RECOGNITION
 ==================================================
 
 Immediately below the hero create:
@@ -421,13 +420,13 @@ Use the exact wording from the supplied official letterhead.
 
 Keep this section elegant and factual.
 
-==================================================
-12. ABOUT THE ASSOCIATION
+================================================== 12. ABOUT THE ASSOCIATION
 ==================================================
 
 Create a strong "About PSSATG" section.
 
 Explain that the association promotes:
+
 - Pencak Silat
 - sports development
 - athlete training
@@ -464,8 +463,7 @@ State Association
 
 Do not invent numerical achievements such as number of athletes, medals, years etc.
 
-==================================================
-13. WHAT IS PENCAK SILAT?
+================================================== 13. WHAT IS PENCAK SILAT?
 ==================================================
 
 Create a visually rich section titled:
@@ -481,6 +479,7 @@ Pencak Silat is the generic term for indigenous martial arts of the Indonesian/M
 Explain its historical and cultural significance.
 
 Explain that Pencak Silat combines:
+
 - mental-spiritual development
 - self-defence
 - art & culture
@@ -501,12 +500,12 @@ ART & CULTURE
 SPORT
 
 Each card should have:
+
 - premium icon
 - short description
 - subtle hover animation
 
-==================================================
-14. HISTORY
+================================================== 14. HISTORY
 ==================================================
 
 Create a dedicated "HISTORY OF PENCAK SILAT" section.
@@ -526,13 +525,13 @@ Explain the formation of the organization uniting Pencak and Silat perguruans in
 Create timeline-style storytelling.
 
 Use:
+
 - vertical timeline on desktop
 - stacked timeline on mobile
 
 Use subtle scroll animations.
 
-==================================================
-15. PENCAK SILAT AROUND THE WORLD
+================================================== 15. PENCAK SILAT AROUND THE WORLD
 ==================================================
 
 Create a dedicated section:
@@ -540,6 +539,7 @@ Create a dedicated section:
 "PENCAK SILAT AROUND THE WORLD"
 
 Explain:
+
 - national federations
 - clubs/schools
 - PERSILAT
@@ -565,8 +565,7 @@ Add a subtle world-map visual in the background.
 
 Do not fabricate country statistics.
 
-==================================================
-16. FOUR CORE COMPONENTS
+================================================== 16. FOUR CORE COMPONENTS
 ==================================================
 
 Create a premium visual section:
@@ -595,8 +594,7 @@ Pencak Silat as a competitive sport focused on fitness and achievement.
 
 Use four large visual cards with relevant imagery.
 
-==================================================
-17. DISCIPLINES
+================================================== 17. DISCIPLINES
 ==================================================
 
 Create a major section:
@@ -623,6 +621,7 @@ Single-person creative performance
 Use large premium image cards.
 
 Each card should contain:
+
 - image
 - category
 - short description
@@ -630,8 +629,7 @@ Each card should contain:
 
 Use images related specifically to the discipline.
 
-==================================================
-18. TANDING / MATCH CATEGORY
+================================================== 18. TANDING / MATCH CATEGORY
 ==================================================
 
 Create detailed section:
@@ -669,8 +667,7 @@ ROUND 03
 
 Make this visually attractive.
 
-==================================================
-19. MATCH SCORING
+================================================== 19. MATCH SCORING
 ==================================================
 
 Create section:
@@ -693,8 +690,7 @@ Includes failure to meet the required weight category after final weighing and s
 
 Create clean information cards.
 
-==================================================
-20. RULES & REGULATIONS
+================================================== 20. RULES & REGULATIONS
 ==================================================
 
 Create a dedicated:
@@ -717,8 +713,7 @@ Do not fabricate a PDF.
 
 Make the button easy to connect to the official rules document later.
 
-==================================================
-21. SPORTS ARTISTIC CATEGORY
+================================================== 21. SPORTS ARTISTIC CATEGORY
 ==================================================
 
 Create a beautiful section:
@@ -743,8 +738,7 @@ Use large images and elegant labels.
 
 Make this section visually different from Tanding.
 
-==================================================
-22. BENEFITS
+================================================== 22. BENEFITS
 ==================================================
 
 Create:
@@ -764,8 +758,7 @@ Use the supplied benefits:
 
 Create an elegant icon-based grid.
 
-==================================================
-23. TRAINING SECTION
+================================================== 23. TRAINING SECTION
 ==================================================
 
 Create:
@@ -785,6 +778,7 @@ Add training images.
 Use premium cards.
 
 Each card:
+
 - image
 - discipline
 - short description
@@ -793,8 +787,7 @@ Each card:
 All enquiry buttons should connect to WhatsApp:
 +91 93477 76946
 
-==================================================
-24. EVENTS SECTION
+================================================== 24. EVENTS SECTION
 ==================================================
 
 The existing Canva site includes sports/training content.
@@ -823,8 +816,7 @@ If exact event data is not available, create polished "Upcoming / Event Highligh
 
 The design must make it easy to add future events.
 
-==================================================
-25. EVENT CARD
+================================================== 25. EVENT CARD
 ==================================================
 
 Each event card should support:
@@ -838,13 +830,13 @@ Register / Enquire
 View Details
 
 Use:
+
 - premium image
 - dark overlay
 - gold accent
 - subtle hover animation
 
-==================================================
-26. GALLERY
+================================================== 26. GALLERY
 ==================================================
 
 Create a large:
@@ -869,6 +861,7 @@ TRAINING
 Create masonry/grid gallery.
 
 Images should have:
+
 - smooth hover zoom
 - dark overlay
 - category label
@@ -878,8 +871,7 @@ Use high-quality images related specifically to Pencak Silat.
 
 Avoid irrelevant martial arts such as karate, taekwondo or MMA.
 
-==================================================
-27. LEADERSHIP
+================================================== 27. LEADERSHIP
 ==================================================
 
 Create:
@@ -907,6 +899,7 @@ Do not AI-generate or alter their faces.
 Use professional cropping and consistent card dimensions.
 
 Card design:
+
 - portrait
 - name
 - designation
@@ -914,8 +907,7 @@ Card design:
 - hover elevation
 - clean typography
 
-==================================================
-28. CHIEF COACH INFORMATION
+================================================== 28. CHIEF COACH INFORMATION
 ==================================================
 
 The existing website contains:
@@ -935,8 +927,7 @@ section using this information.
 
 Do not duplicate information unnecessarily.
 
-==================================================
-29. TESTIMONIALS
+================================================== 29. TESTIMONIALS
 ==================================================
 
 The existing Canva site includes testimonials from:
@@ -951,8 +942,7 @@ Keep testimonials visually elegant.
 
 Do not create fake additional testimonials.
 
-==================================================
-30. TELANGANA IDENTITY
+================================================== 30. TELANGANA IDENTITY
 ==================================================
 
 Subtly incorporate Telangana identity.
@@ -960,6 +950,7 @@ Subtly incorporate Telangana identity.
 Do NOT overuse cultural graphics.
 
 Use:
+
 - subtle Telangana-inspired visual patterns
 - elegant regional motifs
 - Telangana map silhouette where appropriate
@@ -967,8 +958,7 @@ Use:
 
 The website must still feel like a professional sports organization.
 
-==================================================
-31. CONTACT SECTION
+================================================== 31. CONTACT SECTION
 ==================================================
 
 Create a powerful:
@@ -1006,8 +996,7 @@ Create a Google Maps-style location panel / map placeholder.
 
 Do not fabricate map coordinates.
 
-==================================================
-32. CONTACT FORM
+================================================== 32. CONTACT FORM
 ==================================================
 
 Create an enquiry form:
@@ -1047,8 +1036,7 @@ button.
 All WhatsApp communication goes to:
 +91 93477 76946
 
-==================================================
-33. FOOTER
+================================================== 33. FOOTER
 ==================================================
 
 Create a premium dark navy footer.
@@ -1100,8 +1088,7 @@ Keep footer compact and professional.
 
 Do NOT make it excessively tall.
 
-==================================================
-34. ANIMATIONS
+================================================== 34. ANIMATIONS
 ==================================================
 
 Use Framer Motion.
@@ -1109,6 +1096,7 @@ Use Framer Motion.
 Animations should be premium and subtle.
 
 Use:
+
 - fade-up
 - fade-in
 - image reveal
@@ -1120,6 +1108,7 @@ Use:
 - counter-style visual transitions where appropriate
 
 Do NOT use:
+
 - excessive bouncing
 - spinning logos
 - flashy neon animations
@@ -1127,8 +1116,7 @@ Do NOT use:
 
 Logo must remain static.
 
-==================================================
-35. 3D / DEPTH EFFECTS
+================================================== 35. 3D / DEPTH EFFECTS
 ==================================================
 
 The supplied logo is already a 3D-style emblem.
@@ -1136,6 +1124,7 @@ The supplied logo is already a 3D-style emblem.
 Preserve this visual quality.
 
 Use subtle:
+
 - depth shadows
 - glass effects
 - layered cards
@@ -1147,8 +1136,7 @@ Do not turn the entire website into a 3D website.
 
 The 3D effect should be sophisticated and restrained.
 
-==================================================
-36. RESPONSIVE DESIGN
+================================================== 36. RESPONSIVE DESIGN
 ==================================================
 
 The website must be fully responsive.
@@ -1171,6 +1159,7 @@ IMPORTANT:
 Desktop layout must never overflow horizontally.
 
 Mobile:
+
 - cards become single-column
 - navigation becomes hamburger
 - tables become scrollable or stacked
@@ -1180,13 +1169,13 @@ Mobile:
 - buttons remain accessible
 - WhatsApp button remains visible
 
-==================================================
-37. PERFORMANCE
+================================================== 37. PERFORMANCE
 ==================================================
 
 Optimize images.
 
 Use:
+
 - lazy loading
 - responsive images
 - compressed assets
@@ -1195,11 +1184,11 @@ Use:
 
 Avoid huge background videos that make the page slow.
 
-==================================================
-38. ACCESSIBILITY
+================================================== 38. ACCESSIBILITY
 ==================================================
 
 Implement:
+
 - semantic HTML
 - proper heading hierarchy
 - alt text
@@ -1208,8 +1197,7 @@ Implement:
 - accessible buttons
 - sufficient contrast
 
-==================================================
-39. SEO
+================================================== 39. SEO
 ==================================================
 
 Add proper metadata.
@@ -1237,8 +1225,7 @@ Ganda
 Regu
 Solo Creative
 
-==================================================
-40. IMPORTANT IMAGE RULE
+================================================== 40. IMPORTANT IMAGE RULE
 ==================================================
 
 Use the uploaded association assets where specified.
@@ -1246,6 +1233,7 @@ Use the uploaded association assets where specified.
 For additional website images, use high-quality Pencak Silat-related imagery.
 
 Images should show:
+
 - actual Pencak Silat movement
 - competition
 - training
@@ -1264,8 +1252,7 @@ Do NOT use generic gym images.
 
 The visual identity must clearly represent Pencak Silat.
 
-==================================================
-41. PAGE STRUCTURE
+================================================== 41. PAGE STRUCTURE
 ==================================================
 
 Create the website as a polished single-page experience with navigation anchors, but structure components cleanly so it can later be expanded into multiple pages.
@@ -1295,8 +1282,7 @@ Recommended order:
 21. Contact
 22. Footer
 
-==================================================
-42. DESIGN QUALITY REQUIREMENT
+================================================== 42. DESIGN QUALITY REQUIREMENT
 ==================================================
 
 This is extremely important:
@@ -1306,6 +1292,7 @@ The final website must NOT look like a basic AI-generated template.
 It should feel custom designed.
 
 Use:
+
 - strong visual hierarchy
 - generous but controlled spacing
 - premium typography
@@ -1323,13 +1310,13 @@ Do not make every section look identical.
 
 Each major section should have its own visual identity while maintaining the same design system.
 
-==================================================
-43. IMPORTANT OFFICIAL CONTENT RULE
+================================================== 43. IMPORTANT OFFICIAL CONTENT RULE
 ==================================================
 
 Use the content supplied in this prompt.
 
 Do not invent:
+
 - medals
 - championships
 - athlete counts
@@ -1344,8 +1331,7 @@ Do not invent:
 
 If information is unavailable, create an editable UI placeholder instead of inventing facts.
 
-==================================================
-44. FINAL EXPERIENCE
+================================================== 44. FINAL EXPERIENCE
 ==================================================
 
 When someone visits the website, the first impression should be:
@@ -1368,8 +1354,7 @@ Make it premium but not luxurious in a fashion-brand sense.
 
 Make it feel like a serious state-level sports organization.
 
-==================================================
-45. FINAL TECH STACK
+================================================== 45. FINAL TECH STACK
 ==================================================
 
 Use:
@@ -1415,8 +1400,7 @@ This is a FRONTEND-FIRST implementation.
 
 Make all content easy to modify later.
 
-==================================================
-46. FINAL CHECK BEFORE COMPLETION
+================================================== 46. FINAL CHECK BEFORE COMPLETION
 ==================================================
 
 Before finishing:

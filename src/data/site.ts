@@ -148,7 +148,6 @@ export const EVENT_FILTERS = [
   "Championships",
 ] as const;
 
-
 export const AFFILIATIONS = [
   "Indian Pencak Silat Federation",
   "Ministry of Youth Affairs & Sports, Government of India",

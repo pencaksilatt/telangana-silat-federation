@@ -3,7 +3,7 @@ import { Link } from "@tanstack/react-router";
 import { ChevronDown } from "lucide-react";
 import { useRef } from "react";
 import heroImg from "@/assets/hero-silat.jpg";
-import { ASSETS } from "@/data/assets";
+import logo from "@/assets/pssatg-logo.png";
 
 const HEADING = ["Pencak Silat", "Sports Association", "of Telangana"];
 
@@ -133,7 +133,7 @@ export function Hero() {
           className="order-first mx-auto w-40 sm:w-52 lg:order-none lg:mx-0 lg:w-full lg:max-w-[22rem] lg:justify-self-end"
         >
           <img
-            src={ASSETS.logo}
+            src={logo}
             alt="Official emblem of the Pencak Silat Sports Association of Telangana"
             width={880}
             height={1080}

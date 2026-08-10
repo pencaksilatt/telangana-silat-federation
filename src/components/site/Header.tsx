@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Link, useRouterState } from "@tanstack/react-router";
 import { ChevronDown, Menu, Phone, X } from "lucide-react";
-import { ASSETS } from "@/data/assets";
+import logo from "@/assets/pssatg-logo.png";
 import { NAV, ORG } from "@/data/site";
 import { SocialIcons } from "./SocialIcons";
 import { cn } from "@/lib/utils";
@@ -73,7 +73,7 @@ export function Header() {
       <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-4 px-5 py-3 sm:px-8">
         <Link to="/" className="flex min-w-0 items-center gap-3" aria-label={ORG.name}>
           <img
-            src={ASSETS.logo}
+            src={logo}
             alt="Pencak Silat Sports Association of Telangana official emblem"
             width={64}
             height={78}
@@ -216,7 +216,7 @@ export function Header() {
             >
               <div className="flex items-center justify-between">
                 <img
-                  src={ASSETS.logo}
+                  src={logo}
                   alt="PSSATG emblem"
                   width={48}
                   height={58}

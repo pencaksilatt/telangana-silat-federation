@@ -1,9 +1,6 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Award, Quote, ShieldCheck, X } from "lucide-react";
-import presidentImg from "@/assets/president.jpeg.asset.json";
-import secretaryImg from "@/assets/general_secretary.jpeg.asset.json";
-import treasurerImg from "@/assets/treasurer.jpeg.asset.json";
 import gandaImg from "@/assets/ganda.jpg";
 import reguImg from "@/assets/regu.jpg";
 import soloImg from "@/assets/solo-creative.jpg";
@@ -12,13 +9,15 @@ import trainingImg from "@/assets/training.jpg";
 import tunggalImg from "@/assets/tunggal.jpg";
 import eventImg from "@/assets/event.jpg";
 import { TESTIMONIALS } from "@/data/site";
+import { ASSETS } from "@/data/assets";
+import { SafeImage } from "./SafeImage";
 import { Reveal, Section, SectionHeading, StaggerGroup, StaggerItem } from "./primitives";
 import { cn } from "@/lib/utils";
 
 const OFFICIALS = [
-  { role: "President", name: "C.H. Dashratham", photo: presidentImg.url },
-  { role: "Secretary General", name: "D. Durga Satish Goud", photo: secretaryImg.url },
-  { role: "Treasurer", name: "Vinay Kumar Gogula", photo: treasurerImg.url },
+  { role: "President", name: "C.H. Dashratham", photo: ASSETS.president },
+  { role: "Secretary General", name: "D. Durga Satish Goud", photo: ASSETS.secretaryGeneral },
+  { role: "Treasurer", name: "Vinay Kumar Gogula", photo: ASSETS.treasurer },
 ];
 
 export function LeadershipSection() {
@@ -35,7 +34,7 @@ export function LeadershipSection() {
           <StaggerItem key={o.role} className="h-full">
             <article className="group h-full overflow-hidden rounded-sm border border-border bg-background shadow-[0_20px_50px_-30px_rgba(7,20,38,0.55)] transition-all duration-500 hover:-translate-y-2 hover:border-gold/60 hover:shadow-[0_28px_60px_-28px_rgba(7,20,38,0.5)]">
               <div className="relative aspect-[4/5] overflow-hidden bg-navy-deep">
-                <img
+                <SafeImage
                   src={o.photo}
                   alt={`${o.name}, ${o.role}, Pencak Silat Sports Association of Telangana`}
                   loading="lazy"
@@ -66,7 +65,7 @@ export function CoachSection() {
         <Reveal>
           <div className="relative mx-auto max-w-xs overflow-hidden rounded-sm border border-gold/40">
             <img
-              src={secretaryImg.url}
+              src={ASSETS.secretaryGeneral}
               alt="Durga Satish Donga, Telangana Pencak Silat Chief Coach"
               loading="lazy"
               className="aspect-[4/5] w-full object-cover object-top"

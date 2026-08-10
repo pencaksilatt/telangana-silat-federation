@@ -16,6 +16,8 @@ import soloImg from "@/assets/solo-creative.jpg";
 import tandingImg from "@/assets/tanding.jpg";
 import tunggalImg from "@/assets/tunggal.jpg";
 import { AFFILIATIONS, EVENTS, PILLARS } from "@/data/site";
+import { ASSETS } from "@/data/assets";
+import { SafeImage } from "./SafeImage";
 import { DISCIPLINES } from "./SectionsSport";
 import {
   Eyebrow,

@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { IMAGES as APP_IMAGES } from "@/data/images";
 import { PageHero, SiteLayout } from "@/components/site/Layout";
 import {
   FourPillars,
@@ -7,7 +8,7 @@ import {
   WhatIsSection,
 } from "@/components/site/SectionsCore";
 import { ContactCta } from "@/components/site/HomePreviews";
-import heroImg from "@/assets/tunggal.jpg";
+const heroImg = APP_IMAGES.tunggal;
 
 const TITLE = "The Art of Pencak Silat | PSSATG";
 const DESCRIPTION =

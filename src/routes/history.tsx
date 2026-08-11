@@ -1,8 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { IMAGES as APP_IMAGES } from "@/data/images";
 import { PageHero, SiteLayout } from "@/components/site/Layout";
 import { GlobalSilatSection, HistoryTimeline } from "@/components/site/SectionsCore";
 import { ContactCta } from "@/components/site/HomePreviews";
-import heroImg from "@/assets/ganda.jpg";
+const heroImg = APP_IMAGES.ganda;
 
 const TITLE = "The History of Pencak Silat | PSSATG";
 const DESCRIPTION =

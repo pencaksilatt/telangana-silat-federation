@@ -1,7 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { IMAGES as APP_IMAGES } from "@/data/images";
 import { DisciplineLayout } from "@/components/site/DisciplineLayout";
 import { ScoringSection, TandingSection } from "@/components/site/SectionsSport";
-import tandingImg from "@/assets/tanding.jpg";
+const tandingImg = APP_IMAGES.tanding;
 import eventImg from "@/assets/event.jpg";
 import trainingImg from "@/assets/training.jpg";
 

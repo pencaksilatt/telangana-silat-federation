@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { IMAGES as APP_IMAGES } from "@/data/images";
 import { DisciplineLayout } from "@/components/site/DisciplineLayout";
-import tunggalImg from "@/assets/tunggal.jpg";
+const tunggalImg = APP_IMAGES.tunggal;
 import trainingImg from "@/assets/training.jpg";
 import eventImg from "@/assets/event.jpg";
 

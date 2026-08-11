@@ -1,10 +1,11 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { IMAGES as APP_IMAGES } from "@/data/images";
 import { ArrowRight } from "lucide-react";
 import { PageHero, SiteLayout } from "@/components/site/Layout";
 import { ContactCta } from "@/components/site/HomePreviews";
 import { StaggerGroup, StaggerItem } from "@/components/site/primitives";
 import { DISCIPLINES } from "@/components/site/SectionsSport";
-import heroImg from "@/assets/regu.jpg";
+const heroImg = APP_IMAGES.regu;
 
 const TITLE = "Pencak Silat Disciplines — Tanding, Tunggal, Ganda, Regu, Solo Creative | PSSATG";
 const DESCRIPTION =

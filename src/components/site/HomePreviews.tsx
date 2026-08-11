@@ -1,4 +1,5 @@
 import { Link } from "@tanstack/react-router";
+import { IMAGES as APP_IMAGES } from "@/data/images";
 import {
   ArrowRight,
   CalendarDays,
@@ -13,11 +14,11 @@ import eventImg from "@/assets/event.jpg";
 import presidentImg from "@/assets/president.jpeg";
 import secretaryImg from "@/assets/general_secretary.jpeg";
 import treasurerImg from "@/assets/treasurer.jpeg";
-import gandaImg from "@/assets/ganda.jpg";
-import reguImg from "@/assets/regu.jpg";
-import soloImg from "@/assets/solo-creative.jpg";
-import tandingImg from "@/assets/tanding.jpg";
-import tunggalImg from "@/assets/tunggal.jpg";
+const gandaImg = APP_IMAGES.ganda;
+const reguImg = APP_IMAGES.regu;
+const soloImg = APP_IMAGES.solo;
+const tandingImg = APP_IMAGES.tanding;
+const tunggalImg = APP_IMAGES.tunggal;
 import { AFFILIATIONS, EVENTS, PILLARS } from "@/data/site";
 import { SafeImage } from "./SafeImage";
 import { DISCIPLINES } from "./SectionsSport";

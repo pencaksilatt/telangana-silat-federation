@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { IMAGES as APP_IMAGES } from "@/data/images";
 import { createFileRoute } from "@tanstack/react-router";
 import { AnimatePresence, motion } from "framer-motion";
 import { CalendarDays, MapPin } from "lucide-react";
@@ -6,9 +7,9 @@ import { PageHero, SiteLayout } from "@/components/site/Layout";
 import { ContactCta } from "@/components/site/HomePreviews";
 import { EVENT_FILTERS, EVENTS, waLink } from "@/data/site";
 import eventImg from "@/assets/event.jpg";
-import tandingImg from "@/assets/tanding.jpg";
+const tandingImg = APP_IMAGES.tanding;
 import trainingImg from "@/assets/training.jpg";
-import reguImg from "@/assets/regu.jpg";
+const reguImg = APP_IMAGES.regu;
 import { cn } from "@/lib/utils";
 
 const TITLE = "Sports & Events | Pencak Silat Sports Association of Telangana";

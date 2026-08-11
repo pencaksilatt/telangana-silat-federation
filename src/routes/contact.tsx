@@ -1,7 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHero, SiteLayout } from "@/components/site/Layout";
 import { ContactSection } from "@/components/site/ContactFooter";
-import heroImg from "@/assets/training.jpg";
+import { IMAGES as APP_IMAGES } from "@/data/images";
+const heroImg = APP_IMAGES.association;
 
 const TITLE = "Contact & Enquiries | PSSATG";
 const DESCRIPTION =

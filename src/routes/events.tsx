@@ -6,7 +6,7 @@ import { CalendarDays, MapPin } from "lucide-react";
 import { PageHero, SiteLayout } from "@/components/site/Layout";
 import { ContactCta } from "@/components/site/HomePreviews";
 import { EVENT_FILTERS, EVENTS, waLink } from "@/data/site";
-import eventImg from "@/assets/event.jpg";
+const eventImg = APP_IMAGES.officialsChampionship;
 const tandingImg = APP_IMAGES.tanding;
 import trainingImg from "@/assets/training.jpg";
 const reguImg = APP_IMAGES.regu;
@@ -31,9 +31,9 @@ export const Route = createFileRoute("/events")({
 });
 
 const IMAGES: Record<string, string> = {
-  Championships: eventImg,
+  Championships: APP_IMAGES.officialsChampionship,
   Tanding: tandingImg,
-  Artistic: reguImg,
+  Artistic: APP_IMAGES.regu,
   Training: trainingImg,
 };
 

@@ -2,7 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageHero, SiteLayout } from "@/components/site/Layout";
 import { CoachSection, LeadershipSection } from "@/components/site/SectionsPeople";
 import { ContactCta } from "@/components/site/HomePreviews";
-import heroImg from "@/assets/event.jpg";
+import { IMAGES as APP_IMAGES } from "@/data/images";
+const heroImg = APP_IMAGES.officialsChampionship;
 
 const TITLE = "Leadership & Administration | PSSATG";
 const DESCRIPTION =

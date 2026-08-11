@@ -3,7 +3,7 @@ import { IMAGES as APP_IMAGES } from "@/data/images";
 import { PageHero, SiteLayout } from "@/components/site/Layout";
 import { GlobalSilatSection, HistoryTimeline } from "@/components/site/SectionsCore";
 import { ContactCta } from "@/components/site/HomePreviews";
-const heroImg = APP_IMAGES.ganda;
+const heroImg = APP_IMAGES.tunggal;
 
 const TITLE = "The History of Pencak Silat | PSSATG";
 const DESCRIPTION =

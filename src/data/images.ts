@@ -2,25 +2,26 @@
  * Central image mapping for the association website.
  * Every discipline has exactly ONE canonical photograph, used everywhere it appears.
  */
-import tandingAsset from "@/assets/tanding-photo.jpeg.asset.json";
-import tunggalAsset from "@/assets/tunggal-photo.jpeg.asset.json";
-import gandaAsset from "@/assets/ganda-photo.jpeg.asset.json";
-import reguAsset from "@/assets/regu-photo.jpeg.asset.json";
-import soloAsset from "@/assets/solo-creative-photo.jpeg.asset.json";
-import felicitationAsset from "@/assets/association-felicitation.png.asset.json";
-import officialsChampionshipAsset from "@/assets/officials-championship.png.asset.json";
-import officialsBeachAsset from "@/assets/officials-beach-games.png.asset.json";
+import tandingImg from "@/assets/tanding.jpg";
+import tunggalImg from "@/assets/tunggal.jpg";
+import gandaImg from "@/assets/ganda.jpg";
+import reguImg from "@/assets/regu.jpg";
+import soloImg from "@/assets/solo-creative.jpg";
+import felicitationImg from "@/assets/association-felicitation.jpg";
+import officialsChampionshipImg from "@/assets/officials-championship.jpg";
+import officialsBeachImg from "@/assets/officials-beach-games.jpg";
 import trainingImg from "@/assets/training.jpg";
 import eventImg from "@/assets/event.jpg";
 
 /** Canonical discipline photographs — never reuse one discipline's image for another. */
 export const DISCIPLINE_IMAGES = {
-  tanding: tandingAsset.url,
-  tunggal: tunggalAsset.url,
-  ganda: gandaAsset.url,
-  regu: reguAsset.url,
-  solo: soloAsset.url,
+  tanding: tandingImg,
+  tunggal: tunggalImg,
+  ganda: gandaImg,
+  regu: reguImg,
+  solo: soloImg,
 } as const;
+
 
 export const DISCIPLINE_ALT: Record<keyof typeof DISCIPLINE_IMAGES, string> = {
   tanding: "Tanding — two Pesilat in full-contact combat during a Pencak Silat bout",

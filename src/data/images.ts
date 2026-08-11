@@ -36,9 +36,9 @@ export const IMAGES = {
   training: trainingImg,
   event: eventImg,
   /** Association felicitation / office imagery */
-  association: felicitationAsset.url,
+  association: felicitationImg,
   /** Officials and coaches at a national championship */
-  officialsChampionship: officialsChampionshipAsset.url,
+  officialsChampionship: officialsChampionshipImg,
   /** Officials at Beach Games Pencak Silat */
-  officialsBeach: officialsBeachAsset.url,
+  officialsBeach: officialsBeachImg,
 } as const;

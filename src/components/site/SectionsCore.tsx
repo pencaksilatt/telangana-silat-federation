@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
+import { IMAGES as APP_IMAGES } from "@/data/images";
 import { Award, Brain, Globe2, Landmark, Shield, Sparkles, Trophy } from "lucide-react";
-import aboutImg from "@/assets/tunggal.jpg";
+const aboutImg = APP_IMAGES.association;
 import { AFFILIATIONS, PILLARS, WORLD_BODIES } from "@/data/site";
 import { Eyebrow, Reveal, Section, SectionHeading, StaggerGroup, StaggerItem } from "./primitives";
 

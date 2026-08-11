@@ -1,7 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { IMAGES as APP_IMAGES } from "@/data/images";
 import { DisciplineLayout } from "@/components/site/DisciplineLayout";
 import { ScoringSection, TandingSection } from "@/components/site/SectionsSport";
-import tandingImg from "@/assets/tanding.jpg";
+const tandingImg = APP_IMAGES.tanding;
 import eventImg from "@/assets/event.jpg";
 import trainingImg from "@/assets/training.jpg";
 
@@ -11,14 +12,16 @@ const DESCRIPTION =
 
 export const Route = createFileRoute("/disciplines/tanding")({
   component: TandingPage,
-  meta: () => [
+  head: () => ({
+    meta: [
     { title: TITLE },
     { name: "description", content: DESCRIPTION },
     { property: "og:title", content: TITLE },
     { property: "og:description", content: DESCRIPTION },
     { property: "og:type", content: "article" },
     { name: "twitter:card", content: "summary_large_image" },
-  ],
+    ],
+  }),
 });
 
 function TandingPage() {

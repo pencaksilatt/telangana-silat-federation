@@ -1,8 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { IMAGES as APP_IMAGES } from "@/data/images";
 import { PageHero, SiteLayout } from "@/components/site/Layout";
 import { GallerySection, TestimonialsSection } from "@/components/site/SectionsPeople";
 import { ContactCta } from "@/components/site/HomePreviews";
-import heroImg from "@/assets/solo-creative.jpg";
+const heroImg = APP_IMAGES.solo;
 
 const TITLE = "Gallery | Pencak Silat Sports Association of Telangana";
 const DESCRIPTION =
@@ -10,14 +11,16 @@ const DESCRIPTION =
 
 export const Route = createFileRoute("/gallery")({
   component: GalleryPage,
-  meta: () => [
+  head: () => ({
+    meta: [
     { title: TITLE },
     { name: "description", content: DESCRIPTION },
     { property: "og:title", content: TITLE },
     { property: "og:description", content: DESCRIPTION },
     { property: "og:type", content: "website" },
     { name: "twitter:card", content: "summary_large_image" },
-  ],
+    ],
+  }),
 });
 
 function GalleryPage() {

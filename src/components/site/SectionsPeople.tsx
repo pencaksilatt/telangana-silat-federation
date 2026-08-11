@@ -1,20 +1,15 @@
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Award, Quote, ShieldCheck, X } from "lucide-react";
+import { Award, ChevronLeft, ChevronRight, Quote, ShieldCheck, X } from "lucide-react";
 import presidentImg from "@/assets/president.jpeg";
 import secretaryImg from "@/assets/general_secretary.jpeg";
 import treasurerImg from "@/assets/treasurer.jpeg";
-import gandaImg from "@/assets/ganda.jpg";
-import reguImg from "@/assets/regu.jpg";
-import soloImg from "@/assets/solo-creative.jpg";
-import tandingImg from "@/assets/tanding.jpg";
-import trainingImg from "@/assets/training.jpg";
-import tunggalImg from "@/assets/tunggal.jpg";
-import eventImg from "@/assets/event.jpg";
+import { IMAGES as APP_IMAGES, DISCIPLINE_ALT } from "@/data/images";
 import { TESTIMONIALS } from "@/data/site";
 import { SafeImage } from "./SafeImage";
 import { Reveal, Section, SectionHeading, StaggerGroup, StaggerItem } from "./primitives";
 import { cn } from "@/lib/utils";
+
 
 const OFFICIALS = [
   { role: "President", name: "C.H. Dashratham", photo: presidentImg },
@@ -105,33 +100,100 @@ export function CoachSection() {
   );
 }
 
-const GALLERY = [
-  { src: tandingImg, category: "Tanding", alt: "Tanding combat bout in progress" },
-  { src: tunggalImg, category: "Tunggal", alt: "Tunggal single artistic performance" },
-  { src: gandaImg, category: "Ganda", alt: "Ganda paired weapons routine" },
-  { src: reguImg, category: "Regu", alt: "Regu three-person synchronised form" },
-  { src: soloImg, category: "Solo Creative", alt: "Solo creative performance with blade" },
-  { src: eventImg, category: "Events", alt: "Pencak Silat championship arena" },
-  { src: trainingImg, category: "Training", alt: "Group Pencak Silat training session" },
-  { src: tandingImg, category: "Events", alt: "Competition bout during a championship" },
-  { src: tunggalImg, category: "Training", alt: "Athlete practising a compulsory form" },
+type GalleryItem = { src: string; category: string; title: string; alt: string };
+
+const GALLERY: GalleryItem[] = [
+  {
+    src: APP_IMAGES.tanding,
+    category: "Tanding",
+    title: "Tanding — Combat Category",
+    alt: DISCIPLINE_ALT.tanding,
+  },
+  {
+    src: APP_IMAGES.tunggal,
+    category: "Tunggal",
+    title: "Tunggal — Single Competitor",
+    alt: DISCIPLINE_ALT.tunggal,
+  },
+  {
+    src: APP_IMAGES.ganda,
+    category: "Ganda",
+    title: "Ganda — Two-Person Team",
+    alt: DISCIPLINE_ALT.ganda,
+  },
+  {
+    src: APP_IMAGES.regu,
+    category: "Regu",
+    title: "Regu — Three-Person Team",
+    alt: DISCIPLINE_ALT.regu,
+  },
+  {
+    src: APP_IMAGES.solo,
+    category: "Solo Creative",
+    title: "Solo Creative Performance",
+    alt: DISCIPLINE_ALT.solo,
+  },
+  {
+    src: APP_IMAGES.officialsChampionship,
+    category: "Events",
+    title: "Officials & Athletes at National Championship",
+    alt: "Pencak Silat officials, coaches and athletes at a national championship venue",
+  },
+  {
+    src: APP_IMAGES.officialsBeach,
+    category: "Events",
+    title: "Beach Games Pencak Silat Officials",
+    alt: "Pencak Silat technical officials on duty at Beach Games",
+  },
+  {
+    src: APP_IMAGES.association,
+    category: "Association",
+    title: "Association Felicitation",
+    alt: "Association representative and young athlete during an official felicitation",
+  },
+  {
+    src: APP_IMAGES.training,
+    category: "Training",
+    title: "Association Training Session",
+    alt: "Group Pencak Silat training session at an association centre",
+  },
 ];
 
 const CATEGORIES = [
   "All",
+  "Training",
   "Tanding",
   "Tunggal",
   "Ganda",
   "Regu",
   "Solo Creative",
   "Events",
-  "Training",
+  "Association",
 ];
 
 export function GallerySection() {
   const [filter, setFilter] = useState("All");
-  const [lightbox, setLightbox] = useState<null | (typeof GALLERY)[number]>(null);
+  const [index, setIndex] = useState<number | null>(null);
   const items = filter === "All" ? GALLERY : GALLERY.filter((g) => g.category === filter);
+  const active = index === null ? null : (items[index] ?? null);
+
+  const close = useCallback(() => setIndex(null), []);
+  const step = useCallback(
+    (dir: 1 | -1) =>
+      setIndex((i) => (i === null ? i : (i + dir + items.length) % items.length)),
+    [items.length],
+  );
+
+  useEffect(() => {
+    if (index === null) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") close();
+      if (e.key === "ArrowRight") step(1);
+      if (e.key === "ArrowLeft") step(-1);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [index, close, step]);
 
   return (
     <Section id="gallery" tone="dark">
@@ -139,7 +201,7 @@ export function GallerySection() {
         dark
         eyebrow="Moments"
         title="Sports Gallery"
-        intro="Competition, artistic and training imagery from the world of Pencak Silat."
+        intro="Competition, artistic, training and association imagery from Pencak Silat in Telangana."
       />
 
       <Reveal className="mt-8">
@@ -148,7 +210,10 @@ export function GallerySection() {
             <button
               key={c}
               type="button"
-              onClick={() => setFilter(c)}
+              onClick={() => {
+                setFilter(c);
+                setIndex(null);
+              }}
               className={cn(
                 "rounded-sm border px-4 py-2 font-display text-[0.66rem] font-semibold uppercase tracking-[0.18em] transition-colors duration-300",
                 filter === c
@@ -168,64 +233,109 @@ export function GallerySection() {
             <motion.button
               type="button"
               layout
-              key={`${item.category}-${i}`}
-              initial={{ opacity: 0, scale: 0.96 }}
+              key={`${item.category}-${item.title}`}
+              initial={{ opacity: 0, scale: 0.97 }}
               animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.96 }}
+              exit={{ opacity: 0, scale: 0.97 }}
               transition={{ duration: 0.35 }}
-              onClick={() => setLightbox(item)}
+              onClick={() => setIndex(i)}
               className="group relative block w-full break-inside-avoid overflow-hidden rounded-sm"
-              aria-label={`View image: ${item.alt}`}
+              aria-label={`View image: ${item.title}`}
             >
-              <img
+              <SafeImage
                 src={item.src}
                 alt={item.alt}
                 loading="lazy"
-                className={cn(
-                  "w-full object-cover transition-transform duration-[900ms] group-hover:scale-108",
-                  i % 3 === 0 ? "aspect-[4/5]" : i % 3 === 1 ? "aspect-[4/3]" : "aspect-square",
-                )}
+                decoding="async"
+                className="w-full object-cover transition-transform duration-[900ms] group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-navy-deep/45 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-              <span className="absolute bottom-4 left-4 translate-y-2 font-display text-[0.66rem] uppercase tracking-[0.22em] text-gold opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
-                {item.category}
-              </span>
+              <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_top,color-mix(in_oklab,var(--navy-deep)_75%,transparent),transparent_55%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+              <div className="pointer-events-none absolute inset-x-4 bottom-4 translate-y-2 text-left opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
+                <span className="font-display text-[0.62rem] uppercase tracking-[0.22em] text-gold">
+                  {item.category}
+                </span>
+                <p className="mt-1 font-display text-sm font-semibold uppercase tracking-[0.05em] text-offwhite">
+                  {item.title}
+                </p>
+              </div>
             </motion.button>
           ))}
         </AnimatePresence>
       </div>
 
       <AnimatePresence>
-        {lightbox ? (
+        {active ? (
           <motion.div
-            className="fixed inset-0 z-50 grid place-items-center bg-navy-deep/95 p-5"
+            role="dialog"
+            aria-modal="true"
+            aria-label={active.title}
+            className="fixed inset-0 z-50 grid place-items-center bg-navy-deep/96 p-5 backdrop-blur-sm"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            onClick={() => setLightbox(null)}
+            onClick={close}
           >
             <button
               type="button"
               aria-label="Close image"
-              onClick={() => setLightbox(null)}
-              className="absolute right-5 top-5 grid h-11 w-11 place-items-center rounded-sm border border-offwhite/25 text-offwhite hover:border-gold hover:text-gold"
+              onClick={close}
+              className="absolute right-5 top-5 grid h-11 w-11 place-items-center rounded-full border border-offwhite/25 text-offwhite transition-colors hover:border-gold hover:text-gold"
             >
               <X className="h-5 w-5" />
             </button>
-            <motion.img
-              initial={{ scale: 0.94, opacity: 0 }}
+            <button
+              type="button"
+              aria-label="Previous image"
+              onClick={(e) => {
+                e.stopPropagation();
+                step(-1);
+              }}
+              className="absolute left-3 top-1/2 grid h-11 w-11 -translate-y-1/2 place-items-center rounded-full border border-offwhite/25 text-offwhite transition-colors hover:border-gold hover:text-gold sm:left-6"
+            >
+              <ChevronLeft className="h-5 w-5" />
+            </button>
+            <button
+              type="button"
+              aria-label="Next image"
+              onClick={(e) => {
+                e.stopPropagation();
+                step(1);
+              }}
+              className="absolute right-3 top-1/2 grid h-11 w-11 -translate-y-1/2 place-items-center rounded-full border border-offwhite/25 text-offwhite transition-colors hover:border-gold hover:text-gold sm:right-6"
+            >
+              <ChevronRight className="h-5 w-5" />
+            </button>
+
+            <motion.figure
+              key={active.title}
+              initial={{ scale: 0.95, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.94, opacity: 0 }}
-              src={lightbox.src}
-              alt={lightbox.alt}
-              className="max-h-[82vh] w-auto max-w-full rounded-sm object-contain"
-            />
+              exit={{ scale: 0.95, opacity: 0 }}
+              transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+              onClick={(e) => e.stopPropagation()}
+              className="max-w-4xl text-center"
+            >
+              <SafeImage
+                src={active.src}
+                alt={active.alt}
+                className="mx-auto max-h-[76vh] w-auto max-w-full rounded-sm object-contain"
+              />
+              <figcaption className="mt-4">
+                <span className="font-display text-[0.62rem] uppercase tracking-[0.24em] text-gold">
+                  {active.category}
+                </span>
+                <p className="mt-1 font-display text-sm font-semibold uppercase tracking-[0.06em] text-offwhite">
+                  {active.title}
+                </p>
+              </figcaption>
+            </motion.figure>
           </motion.div>
         ) : null}
       </AnimatePresence>
     </Section>
   );
 }
+
 
 export function TestimonialsSection() {
   return (

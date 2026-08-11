@@ -1,4 +1,5 @@
 import { Link } from "@tanstack/react-router";
+import { IMAGES as APP_IMAGES } from "@/data/images";
 import {
   ArrowRight,
   CalendarDays,
@@ -9,15 +10,15 @@ import {
   Sparkles,
 } from "lucide-react";
 import aboutImg from "@/assets/training.jpg";
-import eventImg from "@/assets/event.jpg";
+const eventImg = APP_IMAGES.officialsChampionship;
 import presidentImg from "@/assets/president.jpeg";
 import secretaryImg from "@/assets/general_secretary.jpeg";
 import treasurerImg from "@/assets/treasurer.jpeg";
-import gandaImg from "@/assets/ganda.jpg";
-import reguImg from "@/assets/regu.jpg";
-import soloImg from "@/assets/solo-creative.jpg";
-import tandingImg from "@/assets/tanding.jpg";
-import tunggalImg from "@/assets/tunggal.jpg";
+const gandaImg = APP_IMAGES.ganda;
+const reguImg = APP_IMAGES.regu;
+const soloImg = APP_IMAGES.solo;
+const tandingImg = APP_IMAGES.tanding;
+const tunggalImg = APP_IMAGES.tunggal;
 import { AFFILIATIONS, EVENTS, PILLARS } from "@/data/site";
 import { SafeImage } from "./SafeImage";
 import { DISCIPLINES } from "./SectionsSport";
@@ -186,7 +187,7 @@ export function EventsPreview() {
         <Reveal className="relative overflow-hidden rounded-sm">
           <img
             src={eventImg}
-            alt="Pencak Silat championship arena during competition"
+            alt="Pencak Silat officials and athletes at a national championship"
             loading="lazy"
             className="aspect-[4/3] w-full object-cover"
           />
@@ -284,7 +285,7 @@ const GALLERY_PREVIEW = [
   { src: gandaImg, alt: "Ganda paired routine" },
   { src: reguImg, alt: "Regu three-person synchronised form" },
   { src: soloImg, alt: "Solo creative performance" },
-  { src: eventImg, alt: "Championship arena" },
+  { src: APP_IMAGES.association, alt: "Association felicitation of a young Pencak Silat athlete" },
 ];
 
 export function GalleryPreview() {

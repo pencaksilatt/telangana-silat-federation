@@ -1,7 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHero, SiteLayout } from "@/components/site/Layout";
 import { ContactSection } from "@/components/site/ContactFooter";
-import heroImg from "@/assets/training.jpg";
+import { IMAGES as APP_IMAGES } from "@/data/images";
+const heroImg = APP_IMAGES.association;
 
 const TITLE = "Contact & Enquiries | PSSATG";
 const DESCRIPTION =
@@ -9,14 +10,16 @@ const DESCRIPTION =
 
 export const Route = createFileRoute("/contact")({
   component: ContactPage,
-  meta: () => [
+  head: () => ({
+    meta: [
     { title: TITLE },
     { name: "description", content: DESCRIPTION },
     { property: "og:title", content: TITLE },
     { property: "og:description", content: DESCRIPTION },
     { property: "og:type", content: "website" },
     { name: "twitter:card", content: "summary_large_image" },
-  ],
+    ],
+  }),
 });
 
 function ContactPage() {

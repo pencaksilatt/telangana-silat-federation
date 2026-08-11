@@ -1,8 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { IMAGES as APP_IMAGES } from "@/data/images";
 import { PageHero, SiteLayout } from "@/components/site/Layout";
 import { RulesSection, ScoringSection } from "@/components/site/SectionsSport";
 import { ContactCta } from "@/components/site/HomePreviews";
-import heroImg from "@/assets/tanding.jpg";
+const heroImg = APP_IMAGES.tanding;
 
 const TITLE = "Rules & Regulations | PSSATG";
 const DESCRIPTION =
@@ -10,14 +11,16 @@ const DESCRIPTION =
 
 export const Route = createFileRoute("/rules")({
   component: RulesPage,
-  meta: () => [
+  head: () => ({
+    meta: [
     { title: TITLE },
     { name: "description", content: DESCRIPTION },
     { property: "og:title", content: TITLE },
     { property: "og:description", content: DESCRIPTION },
     { property: "og:type", content: "article" },
     { name: "twitter:card", content: "summary_large_image" },
-  ],
+    ],
+  }),
 });
 
 function RulesPage() {

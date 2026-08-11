@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { IMAGES as APP_IMAGES } from "@/data/images";
 import { DisciplineLayout } from "@/components/site/DisciplineLayout";
-import soloImg from "@/assets/solo-creative.jpg";
+const soloImg = APP_IMAGES.solo;
 import trainingImg from "@/assets/training.jpg";
 import eventImg from "@/assets/event.jpg";
 
@@ -10,14 +11,16 @@ const DESCRIPTION =
 
 export const Route = createFileRoute("/disciplines/solo-creative")({
   component: SoloCreativePage,
-  meta: () => [
+  head: () => ({
+    meta: [
     { title: TITLE },
     { name: "description", content: DESCRIPTION },
     { property: "og:title", content: TITLE },
     { property: "og:description", content: DESCRIPTION },
     { property: "og:type", content: "article" },
     { name: "twitter:card", content: "summary_large_image" },
-  ],
+    ],
+  }),
 });
 
 function SoloCreativePage() {

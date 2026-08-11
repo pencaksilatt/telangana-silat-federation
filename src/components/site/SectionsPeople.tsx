@@ -1,21 +1,15 @@
-import { useState } from "react";
-import { IMAGES as APP_IMAGES } from "@/data/images";
+import { useCallback, useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Award, Quote, ShieldCheck, X } from "lucide-react";
+import { Award, ChevronLeft, ChevronRight, Quote, ShieldCheck, X } from "lucide-react";
 import presidentImg from "@/assets/president.jpeg";
 import secretaryImg from "@/assets/general_secretary.jpeg";
 import treasurerImg from "@/assets/treasurer.jpeg";
-const gandaImg = APP_IMAGES.ganda;
-const reguImg = APP_IMAGES.regu;
-const soloImg = APP_IMAGES.solo;
-const tandingImg = APP_IMAGES.tanding;
-import trainingImg from "@/assets/training.jpg";
-const tunggalImg = APP_IMAGES.tunggal;
-import eventImg from "@/assets/event.jpg";
+import { IMAGES as APP_IMAGES, DISCIPLINE_ALT } from "@/data/images";
 import { TESTIMONIALS } from "@/data/site";
 import { SafeImage } from "./SafeImage";
 import { Reveal, Section, SectionHeading, StaggerGroup, StaggerItem } from "./primitives";
 import { cn } from "@/lib/utils";
+
 
 const OFFICIALS = [
   { role: "President", name: "C.H. Dashratham", photo: presidentImg },

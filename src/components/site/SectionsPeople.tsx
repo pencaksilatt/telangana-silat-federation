@@ -1,14 +1,28 @@
 import { useCallback, useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Award, ChevronLeft, ChevronRight, Quote, ShieldCheck, X } from "lucide-react";
+import {
+  Award,
+  ChevronLeft,
+  ChevronRight,
+  Globe2,
+  Medal,
+  Quote,
+  ShieldCheck,
+  Users,
+  Whistle,
+  X,
+} from "lucide-react";
 import presidentImg from "@/assets/president.jpeg";
 import secretaryImg from "@/assets/general_secretary.jpeg";
 import treasurerImg from "@/assets/treasurer.jpeg";
+import nagaJyothiImg from "@/assets/naga-jyothi.jpeg";
+import kiranNayakImg from "@/assets/kiran-kumar-nayak.jpeg";
 import { IMAGES as APP_IMAGES, DISCIPLINE_ALT } from "@/data/images";
 import { TESTIMONIALS } from "@/data/site";
 import { SafeImage } from "./SafeImage";
 import { Reveal, Section, SectionHeading, StaggerGroup, StaggerItem } from "./primitives";
 import { cn } from "@/lib/utils";
+
 
 
 const OFFICIALS = [

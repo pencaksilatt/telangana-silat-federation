@@ -18,6 +18,7 @@ import treasurerImg from "@/assets/treasurer.jpeg";
 import nagaJyothiImg from "@/assets/naga-jyothi.jpeg";
 import kiranNayakImg from "@/assets/kiran-kumar-nayak.jpeg";
 import { IMAGES as APP_IMAGES, DISCIPLINE_ALT } from "@/data/images";
+import { galleryImages } from "@/data/galleryImages";
 import { TESTIMONIALS } from "@/data/site";
 import { SafeImage } from "./SafeImage";
 import { Reveal, Section, SectionHeading, StaggerGroup, StaggerItem } from "./primitives";
@@ -203,62 +204,13 @@ export function CoachSection() {
 
 type GalleryItem = { src: string; category: string; title: string; alt: string };
 
-const GALLERY: GalleryItem[] = [
-  {
-    src: APP_IMAGES.tanding,
-    category: "Tanding",
-    title: "Tanding — Combat Category",
-    alt: DISCIPLINE_ALT.tanding,
-  },
-  {
-    src: APP_IMAGES.tunggal,
-    category: "Tunggal",
-    title: "Tunggal — Single Competitor",
-    alt: DISCIPLINE_ALT.tunggal,
-  },
-  {
-    src: APP_IMAGES.ganda,
-    category: "Ganda",
-    title: "Ganda — Two-Person Team",
-    alt: DISCIPLINE_ALT.ganda,
-  },
-  {
-    src: APP_IMAGES.regu,
-    category: "Regu",
-    title: "Regu — Three-Person Team",
-    alt: DISCIPLINE_ALT.regu,
-  },
-  {
-    src: APP_IMAGES.solo,
-    category: "Solo Creative",
-    title: "Solo Creative Performance",
-    alt: DISCIPLINE_ALT.solo,
-  },
-  {
-    src: APP_IMAGES.officialsChampionship,
-    category: "Events",
-    title: "Officials & Athletes at National Championship",
-    alt: "Pencak Silat officials, coaches and athletes at a national championship venue",
-  },
-  {
-    src: APP_IMAGES.officialsBeach,
-    category: "Events",
-    title: "Beach Games Pencak Silat Officials",
-    alt: "Pencak Silat technical officials on duty at Beach Games",
-  },
-  {
-    src: APP_IMAGES.association,
-    category: "Association",
-    title: "Association Felicitation",
-    alt: "Association representative and young athlete during an official felicitation",
-  },
-  {
-    src: APP_IMAGES.training,
-    category: "Training",
-    title: "Association Training Session",
-    alt: "Group Pencak Silat training session at an association centre",
-  },
-];
+// Use central galleryImages (user-uploaded photos). Keep discipline images separate elsewhere.
+const GALLERY: GalleryItem[] = galleryImages.map((g) => ({
+  src: g.src,
+  category: g.category,
+  title: g.title,
+  alt: g.title,
+}));
 
 const CATEGORIES = [
   "All",
@@ -275,7 +227,7 @@ const CATEGORIES = [
 export function GallerySection() {
   const [filter, setFilter] = useState("All");
   const [index, setIndex] = useState<number | null>(null);
-  const items = filter === "All" ? GALLERY : GALLERY.filter((g) => g.category === filter);
+  const items = filter.toLowerCase() === "all" ? GALLERY : GALLERY.filter((g) => g.category.toLowerCase() === filter.toLowerCase());
   const active = index === null ? null : (items[index] ?? null);
 
   const close = useCallback(() => setIndex(null), []);

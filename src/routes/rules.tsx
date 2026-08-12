@@ -1,9 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { IMAGES as APP_IMAGES } from "@/data/images";
+import img115 from "@/assets/img 115.jpeg";
 import { PageHero, SiteLayout } from "@/components/site/Layout";
 import { RulesSection, ScoringSection } from "@/components/site/SectionsSport";
 import { ContactCta } from "@/components/site/HomePreviews";
-const heroImg = APP_IMAGES.tanding;
+const heroImg = img115;
 
 const TITLE = "Rules & Regulations | PSSATG";
 const DESCRIPTION =

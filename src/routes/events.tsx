@@ -3,7 +3,8 @@ import { IMAGES as APP_IMAGES } from "@/data/images";
 import { createFileRoute } from "@tanstack/react-router";
 import { AnimatePresence, motion } from "framer-motion";
 import { CalendarDays, MapPin } from "lucide-react";
-import { PageHero, SiteLayout } from "@/components/site/Layout";
+import { PageHero, SiteLayout, Breadcrumbs } from "@/components/site/Layout";
+import { galleryImages } from "@/data/galleryImages";
 import { ContactCta } from "@/components/site/HomePreviews";
 import { EVENT_FILTERS, EVENTS, waLink } from "@/data/site";
 const eventImg = APP_IMAGES.officialsChampionship;
@@ -52,13 +53,57 @@ function EventsPage() {
 
   return (
     <SiteLayout>
-      <PageHero
-        eyebrow="Calendar"
-        title="Sports & Events"
-        subtitle="Championships, selection trials, coaching camps and officiating clinics across Telangana. Dates are confirmed and announced by the association."
-        image={eventImg}
-        breadcrumbs={[{ label: "Sports & Events" }]}
-      />
+        {/* Cinematic hero using gallery image id 26 (img 26.jpeg) */}
+        {(() => {
+          const heroSrc = galleryImages.find((g) => g.id === 26)?.src ?? eventImg;
+          return (
+            <section className="relative isolate flex w-full items-end overflow-hidden bg-navy-deep pb-12 pt-32">
+              <motion.img
+                src={heroSrc}
+                alt="Sports & Events — Pencak Silat"
+                aria-hidden="true"
+                initial={{ opacity: 0, scale: 1 }}
+                animate={{ opacity: 1, scale: 1.02 }}
+                transition={{ duration: 2.2, ease: [0.22, 1, 0.36, 1] }}
+                className="absolute inset-0 -z-20 h-full w-full object-cover object-top sm:object-center"
+              />
+              <div className="absolute inset-0 -z-10 bg-[linear-gradient(105deg,var(--navy-deep)_12%,color-mix(in_oklab,var(--royal)_70%,transparent)_62%,color-mix(in_oklab,var(--navy-deep)_40%,transparent)_100%)]" />
+              <div className="absolute inset-0 -z-10 bg-[radial-gradient(90%_70%_at_15%_10%,color-mix(in_oklab,var(--gold)_14%,transparent),transparent_60%)]" />
+              <div className="absolute inset-x-0 bottom-0 -z-10 h-40 bg-[linear-gradient(to_top,var(--navy-deep),transparent)]" />
+
+              <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
+                <Breadcrumbs items={[{ label: "Sports & Events" }]} />
+                <motion.p
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.15 }}
+                  className="eyebrow mt-6"
+                >
+                  <span className="h-px w-8 bg-gold" aria-hidden="true" />
+                  Calendar
+                </motion.p>
+                <motion.h1
+                  initial={{ opacity: 0, y: 24 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
+                  className="mt-4 max-w-4xl font-display text-[2rem] font-bold uppercase leading-[1.06] tracking-tight text-offwhite sm:text-5xl lg:text-[3.4rem]"
+                >
+                  Sports &amp; Events
+                </motion.h1>
+                <motion.p
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.7, delay: 0.36 }}
+                  className="mt-5 max-w-2xl text-base leading-relaxed text-offwhite/72"
+                >
+                  Championships, selection trials, coaching camps and officiating clinics organised
+                  across Telangana. Dates and official announcements are published by the
+                  association.
+                </motion.p>
+              </div>
+            </section>
+          );
+        })()}
 
       <section className="bg-background py-16 sm:py-20">
         <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">

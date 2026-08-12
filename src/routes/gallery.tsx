@@ -1,9 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { IMAGES as APP_IMAGES } from "@/data/images";
+import img132 from "@/assets/img 132.jpeg";
 import { PageHero, SiteLayout } from "@/components/site/Layout";
 import { GallerySection, TestimonialsSection } from "@/components/site/SectionsPeople";
 import { ContactCta } from "@/components/site/HomePreviews";
-const heroImg = APP_IMAGES.solo;
+const heroImg = img132;
 
 const TITLE = "Gallery | Pencak Silat Sports Association of Telangana";
 const DESCRIPTION =

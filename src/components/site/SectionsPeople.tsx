@@ -1,14 +1,28 @@
 import { useCallback, useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Award, ChevronLeft, ChevronRight, Quote, ShieldCheck, X } from "lucide-react";
+import {
+  Award,
+  ChevronLeft,
+  ChevronRight,
+  Flag,
+  Globe2,
+  Medal,
+  Quote,
+  ShieldCheck,
+  Users,
+  X,
+} from "lucide-react";
 import presidentImg from "@/assets/president.jpeg";
 import secretaryImg from "@/assets/general_secretary.jpeg";
 import treasurerImg from "@/assets/treasurer.jpeg";
+import nagaJyothiImg from "@/assets/naga-jyothi.jpeg";
+import kiranNayakImg from "@/assets/kiran-kumar-nayak.jpeg";
 import { IMAGES as APP_IMAGES, DISCIPLINE_ALT } from "@/data/images";
 import { TESTIMONIALS } from "@/data/site";
 import { SafeImage } from "./SafeImage";
 import { Reveal, Section, SectionHeading, StaggerGroup, StaggerItem } from "./primitives";
 import { cn } from "@/lib/utils";
+
 
 
 const OFFICIALS = [
@@ -23,8 +37,8 @@ export function LeadershipSection() {
       <SectionHeading
         align="center"
         eyebrow="Office bearers"
-        title="Leadership &amp; Administration"
-        intro="The office bearers of the Pencak Silat Sports Association of Telangana, as listed on the official association letterhead."
+        title="Administrative Leadership"
+        intro="Meet the leaders, coaches and technical professionals who contribute to the development, administration and sporting excellence of Pencak Silat in Telangana."
       />
       <StaggerGroup className="mx-auto mt-14 grid max-w-5xl gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {OFFICIALS.map((o) => (
@@ -55,47 +69,134 @@ export function LeadershipSection() {
   );
 }
 
+type Credential = { icon: typeof ShieldCheck; label: string; detail: string };
+
+const SATISH_CREDENTIALS: Credential[] = [
+  {
+    icon: Globe2,
+    label: "18th World Pencak Silat Championship",
+    detail: "Participated in 2018 — Singapore",
+  },
+  { icon: ShieldCheck, label: "National Coach", detail: "National-level coaching credential" },
+  { icon: Flag, label: "National Referee", detail: "(IPSF) Certified" },
+];
+
+const TECHNICAL_TEAM = [
+  {
+    name: "S. Naga Jyothi",
+    org: "PSSATG",
+    role: "Technical Official",
+    photo: nagaJyothiImg,
+    credentials: [
+      { icon: Users, label: "Pencak Silat National Coach & Referee" },
+    ],
+  },
+  {
+    name: "R. Kiran Kumar Nayak",
+    org: "PSSATG",
+    role: "Technical Director",
+    photo: kiranNayakImg,
+    credentials: [
+      { icon: Medal, label: "Pencak Silat National Medalist" },
+      { icon: Flag, label: "State Coach and Referee" },
+    ],
+  },
+];
+
 export function CoachSection() {
   return (
     <Section id="coaching" tone="navy">
-      <div className="grid items-center gap-10 lg:grid-cols-[1fr_1.2fr]">
-        <Reveal>
-          <div className="relative mx-auto max-w-xs overflow-hidden rounded-sm border border-gold/40">
-            <img
+      <SectionHeading
+        dark
+        eyebrow="Technical"
+        title="Coaching &amp; Technical Leadership"
+        intro="Technical leadership guides coaching standards, athlete preparation and officiating within the association."
+      />
+
+      <Reveal className="mt-12">
+        <article className="grid gap-0 overflow-hidden rounded-sm border border-gold/35 bg-navy-deep/60 shadow-[0_30px_70px_-40px_rgba(0,0,0,0.9)] lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.4fr)]">
+          <div className="relative aspect-[4/5] w-full overflow-hidden bg-navy-deep lg:aspect-auto lg:min-h-[26rem]">
+            <SafeImage
               src={secretaryImg}
-              alt="Durga Satish Donga, Telangana Pencak Silat Chief Coach"
+              alt="D. Durga Satish Goud, General Secretary and National Coach, PSSATG"
               loading="lazy"
-              className="aspect-[4/5] w-full object-cover object-top"
+              className="h-full w-full object-cover object-top"
             />
+            <div className="pointer-events-none absolute inset-0 border-r border-gold/25" />
           </div>
-        </Reveal>
-        <div>
-          <SectionHeading dark eyebrow="Technical" title="Coaching &amp; Technical Leadership" />
-          <Reveal delay={0.1}>
-            <div className="mt-7 space-y-4">
-              <p className="font-display text-2xl font-bold uppercase tracking-tight text-gold">
-                Durga Satish Donga
-              </p>
-              <ul className="space-y-2.5 text-sm text-offwhite/75">
-                {[
-                  "Telangana Pencak Silat Chief Coach",
-                  "National Coach & National Referee",
-                  "Secretary General, PSSA Telangana State",
-                ].map((line) => (
-                  <li key={line} className="flex items-start gap-3">
-                    <ShieldCheck className="mt-0.5 h-4 w-4 shrink-0 text-gold" aria-hidden="true" />
-                    {line}
-                  </li>
-                ))}
-              </ul>
-              <p className="max-w-xl text-sm leading-relaxed text-offwhite/55">
-                Technical leadership guides coaching standards, athlete preparation and officiating
-                within the association.
-              </p>
-            </div>
-          </Reveal>
-        </div>
-      </div>
+          <div className="p-8 sm:p-10">
+            <h3 className="font-display text-2xl font-bold uppercase tracking-tight text-gold sm:text-3xl">
+              D. Durga Satish Goud
+            </h3>
+            <p className="mt-2 font-display text-[0.7rem] uppercase tracking-[0.26em] text-offwhite/70">
+              (PSSATG) General Secretary
+            </p>
+            <p className="mt-1 text-xs text-offwhite/45">
+              Also listed above under Administrative Leadership as Secretary General.
+            </p>
+
+            <StaggerGroup className="mt-7 grid gap-3 sm:grid-cols-1">
+              {SATISH_CREDENTIALS.map((c) => (
+                <StaggerItem key={c.label}>
+                  <div className="flex items-start gap-4 border border-offwhite/12 bg-navy/40 p-4 transition-colors duration-300 hover:border-gold/50">
+                    <span className="grid h-9 w-9 shrink-0 place-items-center border border-gold/40 text-gold">
+                      <c.icon className="h-4 w-4" aria-hidden="true" />
+                    </span>
+                    <div>
+                      <p className="font-display text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-offwhite">
+                        {c.label}
+                      </p>
+                      <p className="mt-1 text-xs text-offwhite/60">{c.detail}</p>
+                    </div>
+                  </div>
+                </StaggerItem>
+              ))}
+            </StaggerGroup>
+          </div>
+        </article>
+      </Reveal>
+
+      <Reveal className="mt-16">
+        <h3 className="font-display text-lg font-bold uppercase tracking-[0.18em] text-offwhite">
+          Technical Officials &amp; Sports Professionals
+        </h3>
+        <span className="mt-3 block h-px w-16 bg-gold" aria-hidden="true" />
+      </Reveal>
+
+      <StaggerGroup className="mt-8 grid gap-6 md:grid-cols-2">
+        {TECHNICAL_TEAM.map((p) => (
+          <StaggerItem key={p.name} className="h-full">
+            <article className="flex h-full flex-col gap-6 border border-offwhite/12 bg-navy-deep/60 p-6 transition-all duration-500 hover:-translate-y-1.5 hover:border-gold/50 sm:flex-row">
+              <div className="relative h-52 w-full shrink-0 overflow-hidden border border-gold/35 bg-navy sm:h-44 sm:w-36">
+                <SafeImage
+                  src={p.photo}
+                  alt={`${p.name}, ${p.role}, PSSATG`}
+                  loading="lazy"
+                  className="h-full w-full object-cover object-top"
+                />
+              </div>
+              <div className="flex-1">
+                <h4 className="font-display text-xl font-bold uppercase tracking-tight text-gold">
+                  {p.name}
+                </h4>
+                <p className="mt-2 font-display text-[0.66rem] uppercase tracking-[0.24em] text-offwhite/70">
+                  {p.org}
+                  <span className="mx-2 text-gold">/</span>
+                  {p.role}
+                </p>
+                <ul className="mt-5 space-y-2.5">
+                  {p.credentials.map((c) => (
+                    <li key={c.label} className="flex items-start gap-3 text-sm text-offwhite/75">
+                      <c.icon className="mt-0.5 h-4 w-4 shrink-0 text-gold" aria-hidden="true" />
+                      {c.label}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </article>
+          </StaggerItem>
+        ))}
+      </StaggerGroup>
     </Section>
   );
 }

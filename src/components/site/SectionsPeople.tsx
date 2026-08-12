@@ -4,12 +4,12 @@ import {
   Award,
   ChevronLeft,
   ChevronRight,
+  Flag,
   Globe2,
   Medal,
   Quote,
   ShieldCheck,
   Users,
-  Whistle,
   X,
 } from "lucide-react";
 import presidentImg from "@/assets/president.jpeg";
